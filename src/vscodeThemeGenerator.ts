@@ -4,10 +4,27 @@ export interface IVscodeJsonTheme {
   name?: string;
   include?: string;
   globalSettings?: {
-    background?: string;
-    foreground?: string;
+    background?: string
+    foreground?: string
   };
-  settings?: any[];
+  settings?: IVscodeJsonThemeSetting[];
+}
+
+export interface IVscodeJsonGlobalSetting {
+  name: string;
+  settings: {
+    background?: string
+    foreground?: string
+  };
+}
+
+export interface IVscodeJsonThemeSetting {
+  name: string;
+  scope: string;
+  settings: {
+    foreground?: string
+    fontStyle?: string
+  };
 }
 
 type SourceFetcher = (colorSet: IColorSet) => string;
@@ -27,18 +44,18 @@ enum FontStyle {
 
 function getGlobalSettingGenerator(name: string): ColorGenerator {
   return (color: string) => {
-    let globalSetting: any = {
+    let globalSetting: IVscodeJsonGlobalSetting = {
       'name': name,
       'settings': {}
     };
-    globalSetting.settings[name] = color;
+    (<any>globalSetting.settings)[name] = color;
     return globalSetting;
   };
 }
 
 function getSimpleColorGenerator(name: string, scope: string, fontStyle: number = FontStyle.NONE): ColorGenerator {
   return (color: string) => {
-    let colorRule: any = {
+    let colorRule: IVscodeJsonThemeSetting = {
       'name': name,
       'scope': scope,
       'settings': {
