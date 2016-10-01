@@ -22,13 +22,6 @@ export interface IColorSet {
     background?: string;
     foreground?: string;
   }
-  /*uiGroups?: {
-    userActionNeeded?: string;
-    userCurrentState?: string;
-    backgroundState?: string;
-    background?: string;
-    foreground?: string;
-  }*/
 }
 
 export interface IAnsiColorSet {
