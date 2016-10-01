@@ -25,7 +25,18 @@ enum FontStyle {
   UNDERLINE = 1 << 2
 }
 
-function getSimpleColorGenerator(name: string, scope: string, fontStyle: number = FontStyle.NONE): (color: string) => any {
+function getGlobalSettingGenerator(name: string): ColorGenerator {
+  return (color: string) => {
+    let globalSetting: any = {
+      'name': name,
+      'settings': {}
+    };
+    globalSetting.settings[name] = color;
+    return globalSetting;
+  };
+}
+
+function getSimpleColorGenerator(name: string, scope: string, fontStyle: number = FontStyle.NONE): ColorGenerator {
   return (color: string) => {
     let colorRule: any = {
       'name': name,
@@ -34,18 +45,18 @@ function getSimpleColorGenerator(name: string, scope: string, fontStyle: number 
         'foreground': color
       }
     };
-    let fontStyleValue = '';
+    let fontStyles: string[] = [];
     if (fontStyle & FontStyle.ITALIC) {
-      fontStyleValue += ' italic';
+      fontStyles.push('italic');
     }
     if (fontStyle & FontStyle.BOLD) {
-      fontStyleValue += ' bold';
+      fontStyles.push('bold');
     }
     if (fontStyle & FontStyle.UNDERLINE) {
-      fontStyleValue += ' underline';
+      fontStyles.push('underline');
     }
-    if (fontStyleValue.length > 0) {
-      colorRule.settings.fontStyle = fontStyleValue.trim();
+    if (fontStyles.length > 0) {
+      colorRule.settings.fontStyle = fontStyles.join(' ');
     }
     return colorRule;
   }
@@ -53,6 +64,13 @@ function getSimpleColorGenerator(name: string, scope: string, fontStyle: number 
 
 // An ordered list of rules to be applied if the source conditions are met
 const vscodeJsonThemeRules: IRuleGenerator[] = [
+  // Global settings
+  { source: set => set.ui.background,
+    generate: getGlobalSettingGenerator('background') },
+  { source: set => set.ui.foreground,
+    generate: getGlobalSettingGenerator('foreground') },
+
+  // Syntax
   { source: set => set.syntax.identifier,
     generate: getSimpleColorGenerator('Identifier', 'variable') },
   { source: set => set.syntax.string,
@@ -61,16 +79,16 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
     generate: getSimpleColorGenerator('Number', 'constant.numeric') },
   { source: set => set.syntax.keyword,
     generate: getSimpleColorGenerator('Keyword', 'keyword, modifier, language.this') },
-  // support/module function calls (eg. join in path.join) are colored as function calls
+  // support.function: eg. join in path.join in TypeScript
   { source: set => set.syntax.functionCall,
     generate: getSimpleColorGenerator('Function call', 'entity.name.function, support.function') },
   { source: set => set.syntax.storage,
     generate: getSimpleColorGenerator('Storage', 'storage.type') },
-  // TypeScript modules are colored as variables
+  // module.support: imported modules in TypeScript
   { source: set => set.syntax.identifier,
     generate: getSimpleColorGenerator('Modules', 'module.support', FontStyle.ITALIC) },
   { source: set => set.syntax.type,
-    generate: getSimpleColorGenerator('Type', 'type') },
+    generate: getSimpleColorGenerator('Type', 'type, declaration.entity.name.class') },
   { source: set => set.syntax.comment,
     generate: getSimpleColorGenerator('Comment', 'comment', FontStyle.ITALIC) },
   { source: set => set.syntax.class,
@@ -82,26 +100,10 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     let theme: IVscodeJsonTheme = {};
     theme.name = name;
     theme.settings = [];
-    if (colorSet.ui.background) {
-      theme.settings.push({
-        'name': 'background',
-        'settings': {
-          'background': colorSet.ui.background
-        }
-      });
-    }
-    if (colorSet.ui.foreground) {
-      theme.settings.push({
-        'name': 'foreground',
-        'settings': {
-          'foreground': colorSet.ui.foreground
-        }
-      });
-    }
     vscodeJsonThemeRules.forEach(ruleGenerator => {
       try {
-        let color = ruleGenerator.source(colorSet);
-        theme.settings.push(ruleGenerator.generate(<string>color));
+        let color = <string>ruleGenerator.source(colorSet);
+        theme.settings.push(ruleGenerator.generate(color));
       } catch (ex) {
         // Ignore when source color does not exist
       }
