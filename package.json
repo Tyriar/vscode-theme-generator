@@ -1,0 +1,19 @@
+{
+  "name": "theme-generator",
+  "version": "0.0.1",
+  "description": "Generates editor/terminal themes using a set of colors",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "typings install && tsc"
+  },
+  "author": "Tyriar",
+  "license": "MIT",
+  "typescript": {
+    "definition": "index.d.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.41",
+    "typescript": "^2.0.3",
+    "typings": "^1.4.0"
+  }
+}

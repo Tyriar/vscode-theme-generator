@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": true,
+    "outDir": "dist"
+  },
+  "files": [
+    "src/index.ts"
+  ]
+}
