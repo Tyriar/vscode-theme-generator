@@ -3,10 +3,6 @@ export interface IThemeGenerator {
 }
 
 export interface IColorSet {
-  ansi?: {
-    normal?: IAnsiColorSet;
-    bright?: IAnsiColorSet;
-  }
   syntax?: {
     functionCall?: string;
     identifier?: string;
@@ -22,15 +18,4 @@ export interface IColorSet {
     background?: string;
     foreground?: string;
   }
-}
-
-export interface IAnsiColorSet {
-  black?: string;
-  red?: string;
-  green?: string;
-  yellow?: string;
-  blue?: string;
-  magenta?: string;
-  cyan?: string;
-  white?: string;
 }
