@@ -8,3 +8,11 @@ An early proof of concept of a program that can generate theme files for editors
 npm run build
 npm start
 ```
+
+## Testing the generated theme
+
+```bash
+code out
+```
+
+<kbd>F5</kbd> will launch the VS Code debugger with the theme available to switch to.
