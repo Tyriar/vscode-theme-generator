@@ -88,12 +88,14 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
     generate: getGlobalSettingGenerator('foreground') },
 
   // Syntax
-  { source: set => set.syntax.identifier,
-    generate: getSimpleColorGenerator('Identifier', 'variable') },
+  // string: It's important that string is put first so that other scopes can override strings
+  // within template expressions
   { source: set => set.syntax.string,
     generate: getSimpleColorGenerator('String', 'string') },
   { source: set => set.syntax.number,
     generate: getSimpleColorGenerator('Number', 'constant.numeric') },
+  { source: set => set.syntax.identifier,
+    generate: getSimpleColorGenerator('Identifier', 'variable') },
   { source: set => set.syntax.keyword,
     generate: getSimpleColorGenerator('Keyword', 'keyword, modifier, language.this') },
   // support.function: eg. join in path.join in TypeScript
@@ -109,7 +111,9 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   { source: set => set.syntax.comment,
     generate: getSimpleColorGenerator('Comment', 'comment', FontStyle.ITALIC) },
   { source: set => set.syntax.class,
-    generate: getSimpleColorGenerator('Class', 'entity.name.class', FontStyle.UNDERLINE) }
+    generate: getSimpleColorGenerator('Class', 'entity.name.class', FontStyle.UNDERLINE) },
+  { source: set => set.syntax.keyword,
+    generate: getSimpleColorGenerator('Template expression', 'template.expression.begin, template.expression.end') }
 ];
 
 export class VscodeThemeGenerator implements IThemeGenerator {
