@@ -4,6 +4,7 @@ export interface IThemeGenerator {
 
 export interface IColorSet {
   syntax?: {
+    boolean?: string;
     functionCall?: string;
     identifier?: string;
     keyword?: string;

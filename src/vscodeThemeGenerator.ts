@@ -92,6 +92,8 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   // within template expressions
   { source: set => set.syntax.string,
     generate: getSimpleColorGenerator('String', 'string') },
+  { source: set => set.syntax.boolean,
+    generate: getSimpleColorGenerator('Boolean', 'boolean') },
   { source: set => set.syntax.number,
     generate: getSimpleColorGenerator('Number', 'constant.numeric') },
   { source: set => set.syntax.identifier,
@@ -105,7 +107,7 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
     generate: getSimpleColorGenerator('Storage', 'storage.type') },
   // module.support: imported modules in TypeScript
   { source: set => set.syntax.identifier,
-    generate: getSimpleColorGenerator('Modules', 'module.support', FontStyle.ITALIC) },
+    generate: getSimpleColorGenerator('Modules', 'support.module, support.node', FontStyle.ITALIC) },
   { source: set => set.syntax.type,
     generate: getSimpleColorGenerator('Type', 'type, declaration.entity.name.class') },
   { source: set => set.syntax.comment,
@@ -113,7 +115,9 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   { source: set => set.syntax.class,
     generate: getSimpleColorGenerator('Class', 'entity.name.class', FontStyle.UNDERLINE) },
   { source: set => set.syntax.keyword,
-    generate: getSimpleColorGenerator('Template expression', 'template.expression.begin, template.expression.end') }
+    generate: getSimpleColorGenerator('Template expression', 'template.expression.begin, template.expression.end') },
+  { source: set => set.syntax.storage,
+    generate: getSimpleColorGenerator('JSON key', 'object-literal.member.key') }
 ];
 
 export class VscodeThemeGenerator implements IThemeGenerator {

@@ -6,6 +6,7 @@ import { VscodeThemeGenerator } from './vscodeThemeGenerator'
 const colorSet: IColorSet = {
   syntax: {
     identifier: '#ffffff',
+    boolean: '#be84ff',
     string: '#87d75f',
     number: '#ffcc66',
     keyword: '#ff8f7e',
