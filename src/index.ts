@@ -3,7 +3,7 @@ import * as path from 'path';
 import { IColorSet } from './themeGenerator'
 import { VscodeThemeGenerator } from './vscodeThemeGenerator'
 
-const colorSet: IColorSet = {
+const colorSet1: IColorSet = {
   syntax: {
     identifier: '#ffffff',
     boolean: '#be84ff',
@@ -20,7 +20,28 @@ const colorSet: IColorSet = {
     background: '#151515'
   }
 };
-const themeJson = new VscodeThemeGenerator().generateTheme('Generated theme 2', colorSet);
+
+const glacierColorSet: IColorSet = {
+  syntax: {
+    identifier: '#d73c4d', // Should be bold in Glacier
+    // boolean: '#',
+    string: '#ffe792',
+    // number: '#',
+    keyword: '#d7503c',
+    // functionCall: '#',
+    storage: '#3cadd7',
+    comment: '#515c68',
+    // class: '#',
+    // type: '#',
+    modifier: '#3cadd7'
+  },
+  ui: {
+    background: '#0e151b',
+    foreground: '#efefef',
+    cursor: '#ffe792'
+  }
+};
+const themeJson = new VscodeThemeGenerator().generateTheme('Generated theme 2', glacierColorSet);
 const outputFile = path.join(__dirname, '..', 'out', 'theme.json')
 
 fs.writeFileSync(outputFile, themeJson);

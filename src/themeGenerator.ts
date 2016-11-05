@@ -14,6 +14,7 @@ export interface IColorSet {
     comment?: string;
     class?: string;
     type?: string;
+    modifier?: string;
   }
   ui?: {
     /** The default background color */
