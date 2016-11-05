@@ -120,7 +120,6 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     const theme: IVscodeJsonTheme = {};
     theme.name = name;
     theme.settings = [];
-    //{"name":"background","settings":{"background":"#151515","caret":"#0000FF"}}
 
     const globalSetting: any = {
       name: 'Global settings',
