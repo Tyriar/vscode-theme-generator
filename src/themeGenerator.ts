@@ -16,7 +16,13 @@ export interface IColorSet {
     type?: string;
   }
   ui?: {
+    /** The default background color */
     background?: string;
+    /** The default foreground color */
     foreground?: string;
+    /** The color of the editor cursor/caret */
+    cursor?: string;
+
+    selectionHighlight?: string;
   }
 }

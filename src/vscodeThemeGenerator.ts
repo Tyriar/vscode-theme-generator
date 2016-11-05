@@ -10,14 +10,6 @@ export interface IVscodeJsonTheme {
   settings?: IVscodeJsonThemeSetting[];
 }
 
-export interface IVscodeJsonGlobalSetting {
-  name: string;
-  settings: {
-    background?: string
-    foreground?: string
-  };
-}
-
 export interface IVscodeJsonThemeSetting {
   name: string;
   scope: string;
@@ -44,12 +36,12 @@ enum FontStyle {
 
 function getGlobalSettingGenerator(name: string): ColorGenerator {
   return (color: string) => {
-    let globalSetting: IVscodeJsonGlobalSetting = {
-      'name': name,
-      'settings': {}
-    };
-    (<any>globalSetting.settings)[name] = color;
-    return globalSetting;
+    if (!color) {
+      return undefined;
+    }
+    const result: any = {};
+    result[name] = color;
+    return result
   };
 }
 
@@ -79,15 +71,18 @@ function getSimpleColorGenerator(name: string, scope: string, fontStyle: number 
   }
 }
 
-// An ordered list of rules to be applied if the source conditions are met
-const vscodeJsonThemeRules: IRuleGenerator[] = [
+const vscodeJsonGlobalThemeRules: IRuleGenerator[] = [
   // Global settings
   { source: set => set.ui.background,
     generate: getGlobalSettingGenerator('background') },
   { source: set => set.ui.foreground,
     generate: getGlobalSettingGenerator('foreground') },
+  { source: set => set.ui.cursor,
+    generate: getGlobalSettingGenerator('caret') }
+];
 
-  // Syntax
+// An ordered list of rules to be applied if the source conditions are met
+const vscodeJsonThemeRules: IRuleGenerator[] = [
   // string: It's important that string is put first so that other scopes can override strings
   // within template expressions
   { source: set => set.syntax.string,
@@ -122,15 +117,28 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
 
 export class VscodeThemeGenerator implements IThemeGenerator {
   public generateTheme(name: string, colorSet: IColorSet): string {
-    let theme: IVscodeJsonTheme = {};
+    const theme: IVscodeJsonTheme = {};
     theme.name = name;
     theme.settings = [];
+    //{"name":"background","settings":{"background":"#151515","caret":"#0000FF"}}
+
+    const globalSetting: any = {
+      name: 'Global settings',
+      settings: {}
+    };
+    vscodeJsonGlobalThemeRules.forEach(ruleGenerator => {
+      const color = <string>ruleGenerator.source(colorSet);
+      if (color) {
+        const generated = ruleGenerator.generate(color);
+        globalSetting.settings[Object.keys(generated)[0]] = color;
+      }
+    });
+    theme.settings.push(globalSetting);
+
     vscodeJsonThemeRules.forEach(ruleGenerator => {
-      try {
-        let color = <string>ruleGenerator.source(colorSet);
+      const color = <string>ruleGenerator.source(colorSet);
+      if (color) {
         theme.settings.push(ruleGenerator.generate(color));
-      } catch (ex) {
-        // Ignore when source color does not exist
       }
     });
     return JSON.stringify(theme);
