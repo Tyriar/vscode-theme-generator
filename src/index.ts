@@ -42,7 +42,7 @@ const glacierColorSet: IColorSet = {
   }
 };
 
-const colorset2colors = {
+const sapphireColors = {
   red: '#DA6771',
   redLight: '#e5949b',
   green: '#4EB071',
@@ -55,21 +55,21 @@ const colorset2colors = {
   grey: '#4A5160'
 }
 
-const colorSet2: IColorSet = {
+const sapphireColorSet: IColorSet = {
   syntax: {
-    identifier: colorset2colors.blueLight,
-    string: colorset2colors.red,
-    number: colorset2colors.redLight,
-    keyword: colorset2colors.blue,
-    boolean: colorset2colors.blue,
-    function: colorset2colors.teal,
-    functionCall: colorset2colors.yellow,
-    storage: colorset2colors.blue,
-    comment: colorset2colors.grey,
-    class: colorset2colors.teal,
-    classMember: colorset2colors.teal,
-    type: colorset2colors.green,
-    this: colorset2colors.blue
+    identifier: sapphireColors.blueLight,
+    string: sapphireColors.red,
+    number: sapphireColors.redLight,
+    keyword: sapphireColors.blue,
+    boolean: sapphireColors.blue,
+    function: sapphireColors.teal,
+    functionCall: sapphireColors.yellow,
+    storage: sapphireColors.blue,
+    comment: sapphireColors.grey,
+    class: sapphireColors.teal,
+    classMember: sapphireColors.teal,
+    type: sapphireColors.green,
+    this: sapphireColors.blue
   },
   ui: {
     background: '#151B24',
@@ -80,13 +80,14 @@ const colorSet2: IColorSet = {
     findMatchHighlight: '#4e2e62',
     currentFindMatchHighlight: '#864fa9',
     selection: '#153958',
-    selectionHighlight: '#3b404c',
-    wordHighlight: colorset2colors.greenDim,
-    wordHighlightStrong: colorset2colors.greenDim,
-    activeLinkForeground: colorset2colors.blue
+    selectionHighlight: sapphireColors.greenDim,//'#3b404c',
+    // White with ~10% opacity
+    wordHighlight: '#ffffff18',//sapphireColors.greenDim,
+    wordHighlightStrong: '#ffffff18',//sapphireColors.greenDim,
+    activeLinkForeground: sapphireColors.blue
   }
 };
-const themeJson = new VscodeThemeGenerator().generateTheme('Generated theme 2', colorSet2);
+const themeJson = new VscodeThemeGenerator().generateTheme('Sapphire theme', sapphireColorSet);
 const outputFile = path.join(__dirname, '..', 'out', 'theme.json')
 
 fs.writeFileSync(outputFile, themeJson);
