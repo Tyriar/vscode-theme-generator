@@ -73,12 +73,19 @@ function getSimpleColorGenerator(name: string, scope: string, fontStyle: number 
 
 const vscodeJsonGlobalThemeRules: IRuleGenerator[] = [
   // Global settings
-  { source: set => set.ui.background,
-    generate: getGlobalSettingGenerator('background') },
-  { source: set => set.ui.foreground,
-    generate: getGlobalSettingGenerator('foreground') },
-  { source: set => set.ui.cursor,
-    generate: getGlobalSettingGenerator('caret') }
+  { source: set => set.ui.background, generate: getGlobalSettingGenerator('background') },
+  { source: set => set.ui.foreground, generate: getGlobalSettingGenerator('foreground') },
+  { source: set => set.ui.cursor,     generate: getGlobalSettingGenerator('caret') },
+  { source: set => set.ui.invisibles, generate: getGlobalSettingGenerator('invisibles') },
+  { source: set => set.ui.findMatchHighlight, generate: getGlobalSettingGenerator('findMatchHighlight') },
+  { source: set => set.ui.currentFindMatchHighlight, generate: getGlobalSettingGenerator('currentFindMatchHighlight') },
+  { source: set => set.ui.findRangeHighlight, generate: getGlobalSettingGenerator('findRangeHighlight') },
+  { source: set => set.ui.rangeHighlight, generate: getGlobalSettingGenerator('rangeHighlight') },
+  { source: set => set.ui.selection, generate: getGlobalSettingGenerator('selection') },
+  { source: set => set.ui.selectionHighlight, generate: getGlobalSettingGenerator('selectionHighlight') },
+  { source: set => set.ui.wordHighlight, generate: getGlobalSettingGenerator('wordHighlight') },
+  { source: set => set.ui.wordHighlightStrong, generate: getGlobalSettingGenerator('wordHighlightStrong') },
+  { source: set => set.ui.activeLinkForeground, generate: getGlobalSettingGenerator('activeLinkForeground') }
 ];
 
 // An ordered list of rules to be applied if the source conditions are met

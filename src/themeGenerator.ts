@@ -26,7 +26,22 @@ export interface IColorSet {
     foreground?: string;
     /** The color of the editor cursor/caret */
     cursor?: string;
+    /** Indent guide */
+    invisibles?: string;
+    /** Line highlight, this will remove the line borders in favor of a solid highlight */
+    lineHighlight?: string;
 
+    findMatchHighlight?: string;
+    currentFindMatchHighlight?: string;
+    findRangeHighlight?: string;
+    /** Highlights the line(s) of the current find match, this also applies to things like find symbol */
+    rangeHighlight?: string;
+    /** Highlights strings that match the current selection, excluding the selection itself */
     selectionHighlight?: string;
+
+    selection?: string;
+    wordHighlight?: string;
+    wordHighlightStrong?: string;
+    activeLinkForeground?: string;
   }
 }

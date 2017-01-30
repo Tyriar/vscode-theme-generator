@@ -46,6 +46,7 @@ const colorset2colors = {
   red: '#DA6771',
   redLight: '#e5949b',
   green: '#4EB071',
+  greenDim: '#275839',
   yellow: '#fff099',
   blue: '#399EF4',
   blueLight: '#9fcff9',
@@ -73,7 +74,16 @@ const colorSet2: IColorSet = {
   ui: {
     background: '#151B24',
     foreground: '#efefef',
-    cursor: '#ffffff'
+    cursor: '#ffffff',
+    invisibles: '#263040',
+    rangeHighlight: '#263040',
+    findMatchHighlight: '#4e2e62',
+    currentFindMatchHighlight: '#864fa9',
+    selection: '#153958',
+    selectionHighlight: '#3b404c',
+    wordHighlight: colorset2colors.greenDim,
+    wordHighlightStrong: colorset2colors.greenDim,
+    activeLinkForeground: colorset2colors.blue
   }
 };
 const themeJson = new VscodeThemeGenerator().generateTheme('Generated theme 2', colorSet2);
