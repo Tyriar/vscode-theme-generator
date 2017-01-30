@@ -46,7 +46,7 @@ const colorset2colors = {
   red: '#DA6771',
   redLight: '#e5949b',
   green: '#4EB071',
-  yellow: '#FFEA75',
+  yellow: '#fff099',
   blue: '#399EF4',
   blueLight: '#9fcff9',
   pink: '#B168DF',
