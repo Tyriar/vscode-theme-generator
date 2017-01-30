@@ -41,7 +41,42 @@ const glacierColorSet: IColorSet = {
     cursor: '#ffe792'
   }
 };
-const themeJson = new VscodeThemeGenerator().generateTheme('Generated theme 2', glacierColorSet);
+
+const colorset2colors = {
+  red: '#DA6771',
+  redLight: '#e5949b',
+  green: '#4EB071',
+  yellow: '#FFEA75',
+  blue: '#399EF4',
+  blueLight: '#9fcff9',
+  pink: '#B168DF',
+  teal: '#21C5C7',
+  grey: '#4A5160'
+}
+
+const colorSet2: IColorSet = {
+  syntax: {
+    identifier: colorset2colors.blueLight,
+    string: colorset2colors.red,
+    number: colorset2colors.redLight,
+    keyword: colorset2colors.blue,
+    boolean: colorset2colors.blue,
+    function: colorset2colors.teal,
+    functionCall: colorset2colors.yellow,
+    storage: colorset2colors.blue,
+    comment: colorset2colors.grey,
+    class: colorset2colors.teal,
+    classMember: colorset2colors.teal,
+    type: colorset2colors.green,
+    this: colorset2colors.blue
+  },
+  ui: {
+    background: '#151B24',
+    foreground: '#efefef',
+    cursor: '#ffffff'
+  }
+};
+const themeJson = new VscodeThemeGenerator().generateTheme('Generated theme 2', colorSet2);
 const outputFile = path.join(__dirname, '..', 'out', 'theme.json')
 
 fs.writeFileSync(outputFile, themeJson);

@@ -88,34 +88,48 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   { source: set => set.syntax.string,
     generate: getSimpleColorGenerator('String', 'string') },
   { source: set => set.syntax.boolean,
-    generate: getSimpleColorGenerator('Boolean', 'boolean') },
+    generate: getSimpleColorGenerator('Boolean', 'constant.language.boolean') },
   { source: set => set.syntax.number,
     generate: getSimpleColorGenerator('Number', 'constant.numeric') },
   { source: set => set.syntax.identifier,
-    generate: getSimpleColorGenerator('Identifier', 'variable') },
+    generate: getSimpleColorGenerator('Identifier', 'variable, support.variable, support.class, support.constant') },
   { source: set => set.syntax.keyword,
     generate: getSimpleColorGenerator('Keyword', 'keyword, modifier, language.this') },
   // support.function: eg. join in path.join in TypeScript
   { source: set => set.syntax.functionCall,
     generate: getSimpleColorGenerator('Function call', 'entity.name.function, support.function') },
+  // storage.type: var (ts)
+  // storage.modifier: private (ts)
   { source: set => set.syntax.storage,
-    generate: getSimpleColorGenerator('Storage', 'storage.type') },
+    generate: getSimpleColorGenerator('Storage', 'storage.type, storage.modifier') },
   // module.support: imported modules in TypeScript
   { source: set => set.syntax.identifier,
     generate: getSimpleColorGenerator('Modules', 'support.module, support.node', FontStyle.ITALIC) },
+  // support.type: `boolean` (ts)
   { source: set => set.syntax.type,
-    generate: getSimpleColorGenerator('Type', 'type, declaration.entity.name.class') },
+    generate: getSimpleColorGenerator('Type', 'support.type', FontStyle.BOLD) },
+  // entity.name.type: `: SomeType` (ts)
+  { source: set => set.syntax.type,
+    generate: getSimpleColorGenerator('Type', 'entity.name.type, entity.other.inherited-class') },
   { source: set => set.syntax.comment,
     generate: getSimpleColorGenerator('Comment', 'comment', FontStyle.ITALIC) },
   { source: set => set.syntax.class,
-    generate: getSimpleColorGenerator('Class', 'entity.name.class', FontStyle.UNDERLINE) },
+    generate: getSimpleColorGenerator('Class', 'entity.name.type.class', FontStyle.UNDERLINE) },
+  { source: set => set.syntax.classMember,
+    generate: getSimpleColorGenerator('Class variable', 'variable.object.property') },
+  { source: set => set.syntax.classMember,
+    generate: getSimpleColorGenerator('Class method', 'meta.definition.method entity.name.function') },
+  { source: set => set.syntax.function,
+    generate: getSimpleColorGenerator('Function definition', 'meta.function entity.name.function') },
   { source: set => set.syntax.keyword,
     generate: getSimpleColorGenerator('Template expression', 'template.expression.begin, template.expression.end') },
-  { source: set => set.syntax.storage,
-    generate: getSimpleColorGenerator('JSON key', 'object-literal.member.key') },
+  { source: set => set.syntax.identifier,
+    generate: getSimpleColorGenerator('JSON key', 'meta.object-literal.key') },
   // modifier: This includes things like access modifiers, static, readonly, etc.
   { source: set => set.syntax.modifier,
-    generate: getSimpleColorGenerator('Modifier', 'modifier') }
+    generate: getSimpleColorGenerator('Modifier', 'modifier') },
+  { source: set => set.syntax.this,
+    generate: getSimpleColorGenerator('This variable', 'variable.language.this') }
 ];
 
 export class VscodeThemeGenerator implements IThemeGenerator {

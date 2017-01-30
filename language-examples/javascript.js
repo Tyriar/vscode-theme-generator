@@ -8,6 +8,7 @@ function func(param) {
     var templateLiterals = `a ${text} b ${1 + 2} c`;
     return {
         "text": text,
-        "boolean": false
+        "boolean": false,
+        "number": 231
     };
 }

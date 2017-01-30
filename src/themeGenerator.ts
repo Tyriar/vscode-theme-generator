@@ -5,6 +5,7 @@ export interface IThemeGenerator {
 export interface IColorSet {
   syntax?: {
     boolean?: string;
+    function?: string;
     functionCall?: string;
     identifier?: string;
     keyword?: string;
@@ -13,8 +14,10 @@ export interface IColorSet {
     string?: string;
     comment?: string;
     class?: string;
+    classMember?: string;
     type?: string;
     modifier?: string;
+    this?: string;
   }
   ui?: {
     /** The default background color */
