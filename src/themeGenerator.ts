@@ -29,8 +29,10 @@ export interface IColorSet {
     foreground?: string;
     /** The color of the editor cursor/caret */
     cursor?: string;
-    /** Indent guide */
+    /** Visible whitespace (editor.renderWhitespace) */
     invisibles?: string;
+    /** Indent guide */
+    guide?: string;
     /** Line highlight, this will remove the line borders in favor of a solid highlight */
     lineHighlight?: string;
 

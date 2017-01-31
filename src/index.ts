@@ -78,6 +78,7 @@ const sapphireColorSet: IColorSet = {
     background: '#151B24',
     foreground: '#efefef',
     cursor: '#ffffff',
+    guide: '#263040',
     invisibles: '#263040',
     rangeHighlight: '#263040',
     findMatchHighlight: '#4e2e62',

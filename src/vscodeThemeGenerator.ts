@@ -99,7 +99,8 @@ const vscodeJsonGlobalThemeRules: IRuleGenerator[] = [
   // Global settings
   { source: set => set.ui.background, generate: getGlobalSettingGenerator('background') },
   { source: set => set.ui.foreground, generate: getGlobalSettingGenerator('foreground') },
-  { source: set => set.ui.cursor,     generate: getGlobalSettingGenerator('caret') },
+  { source: set => set.ui.cursor, generate: getGlobalSettingGenerator('caret') },
+  { source: set => set.ui.guide, generate: getGlobalSettingGenerator('guide') },
   { source: set => set.ui.invisibles, generate: getGlobalSettingGenerator('invisibles') },
   { source: set => set.ui.findMatchHighlight, generate: getGlobalSettingGenerator('findMatchHighlight') },
   { source: set => set.ui.currentFindMatchHighlight, generate: getGlobalSettingGenerator('currentFindMatchHighlight') },
