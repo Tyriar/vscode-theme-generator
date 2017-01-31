@@ -71,6 +71,30 @@ function getSimpleColorGenerator(name: string, scope: string, fontStyle: number 
   }
 }
 
+function getFontStyleGenerator(name: string, scope: string, fontStyle: number = FontStyle.NONE): ColorGenerator {
+  return () => {
+    let colorRule: IVscodeJsonThemeSetting = {
+      'name': name,
+      'scope': scope,
+      'settings': {}
+    };
+    let fontStyles: string[] = [];
+    if (fontStyle & FontStyle.ITALIC) {
+      fontStyles.push('italic');
+    }
+    if (fontStyle & FontStyle.BOLD) {
+      fontStyles.push('bold');
+    }
+    if (fontStyle & FontStyle.UNDERLINE) {
+      fontStyles.push('underline');
+    }
+    if (fontStyles.length > 0) {
+      colorRule.settings.fontStyle = fontStyles.join(' ');
+    }
+    return colorRule;
+  }
+}
+
 const vscodeJsonGlobalThemeRules: IRuleGenerator[] = [
   // Global settings
   { source: set => set.ui.background, generate: getGlobalSettingGenerator('background') },
@@ -100,8 +124,9 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
     generate: getSimpleColorGenerator('Number', 'constant.numeric') },
   { source: set => set.syntax.identifier,
     generate: getSimpleColorGenerator('Identifier', 'variable, support.variable, support.class, support.constant') },
+  // support.type.object: module.exports (ts)
   { source: set => set.syntax.keyword,
-    generate: getSimpleColorGenerator('Keyword', 'keyword, modifier, language.this') },
+    generate: getSimpleColorGenerator('Keyword', 'keyword, modifier, language.this, support.type.object') },
   // support.function: eg. join in path.join in TypeScript
   { source: set => set.syntax.functionCall,
     generate: getSimpleColorGenerator('Function call', 'entity.name.function, support.function') },
@@ -114,7 +139,7 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
     generate: getSimpleColorGenerator('Modules', 'support.module, support.node', FontStyle.ITALIC) },
   // support.type: `boolean` (ts)
   { source: set => set.syntax.type,
-    generate: getSimpleColorGenerator('Type', 'support.type', FontStyle.BOLD) },
+    generate: getSimpleColorGenerator('Type', 'support.type') },
   // entity.name.type: `: SomeType` (ts)
   { source: set => set.syntax.type,
     generate: getSimpleColorGenerator('Type', 'entity.name.type, entity.other.inherited-class') },
@@ -131,16 +156,43 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   { source: set => set.syntax.keyword,
     generate: getSimpleColorGenerator('Template expression', 'template.expression.begin, template.expression.end') },
   { source: set => set.syntax.identifier,
-    generate: getSimpleColorGenerator('JSON key', 'meta.object-literal.key') },
+    generate: getSimpleColorGenerator('YAML key', 'entity.name.tag.yaml') },
   // modifier: This includes things like access modifiers, static, readonly, etc.
   { source: set => set.syntax.modifier,
     generate: getSimpleColorGenerator('Modifier', 'modifier') },
   { source: set => set.syntax.this,
     generate: getSimpleColorGenerator('This variable', 'variable.language.this') },
-  { source: set => set.syntax.cssClass,
-    generate: getSimpleColorGenerator('CSS class', 'entity.other.attribute-name.class') },
-  { source: set => set.syntax.cssId,
-    generate: getSimpleColorGenerator('CSS ID', 'entity.other.attribute-name.id') }
+  /**
+   * JSON
+   */
+  { source: set => set.syntax.identifier, generate: getSimpleColorGenerator('JSON key', 'meta.object-literal.key, meta.object-literal.key string, support.type.property-name.json') },
+  { source: set => set.syntax.keyword,    generate: getSimpleColorGenerator('JSON constant', 'constant.language.json') },
+  /**
+   * CSS
+   */
+  { source: set => set.syntax.cssClass, generate: getSimpleColorGenerator('CSS class', 'entity.other.attribute-name.class') },
+  { source: set => set.syntax.cssId,    generate: getSimpleColorGenerator('CSS ID', 'entity.other.attribute-name.id') },
+  { source: set => set.syntax.cssTag,   generate: getSimpleColorGenerator('CSS tag', 'source.css entity.name.tag') },
+  /**
+   * HTML
+   */
+  { source: set => set.syntax.keyword,      generate: getSimpleColorGenerator('HTML tag outer', 'meta.tag, punctuation.definition.tag') },
+  { source: set => set.syntax.identifier,   generate: getSimpleColorGenerator('HTML tag inner', 'entity.name.tag') },
+  { source: set => set.syntax.functionCall, generate: getSimpleColorGenerator('HTML tag attribute', 'entity.other.attribute-name') },
+  /**
+   * Markdown
+   */
+  { source: set => set.syntax.keyword,    generate: getSimpleColorGenerator('Markdown heading', 'markup.heading') },
+  { source: set => set.syntax.identifier, generate: getSimpleColorGenerator('Markdown link text', 'text.html.markdown meta.link.inline') },
+  // TODO: Clean up getFontStyleGenerator
+  { source: set => 'undefined', generate: getFontStyleGenerator('Markdown italic', 'markup.italic', FontStyle.ITALIC) },
+  { source: set => 'undefined', generate: getFontStyleGenerator('Markdown bold', 'markup.bold', FontStyle.BOLD) },
+  { source: set => 'undefined', generate: getFontStyleGenerator('Markdown bold italic', 'markup.bold markup.italic, markup.italic markup.bold', FontStyle.BOLD | FontStyle.ITALIC) },
+  /**
+   * Ini
+   */
+  { source: set => set.syntax.identifier, generate: getSimpleColorGenerator('INI property name', 'keyword.other.definition.ini') },
+  { source: set => set.syntax.keyword,    generate: getSimpleColorGenerator('INI section title', 'entity.name.section.group-title.ini') }
 ];
 
 export class VscodeThemeGenerator implements IThemeGenerator {

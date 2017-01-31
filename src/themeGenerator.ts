@@ -20,6 +20,7 @@ export interface IColorSet {
     this?: string;
     cssClass?: string;
     cssId?: string;
+    cssTag?: string;
   }
   ui?: {
     /** The default background color */
