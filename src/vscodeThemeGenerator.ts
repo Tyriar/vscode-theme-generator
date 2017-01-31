@@ -136,7 +136,11 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   { source: set => set.syntax.modifier,
     generate: getSimpleColorGenerator('Modifier', 'modifier') },
   { source: set => set.syntax.this,
-    generate: getSimpleColorGenerator('This variable', 'variable.language.this') }
+    generate: getSimpleColorGenerator('This variable', 'variable.language.this') },
+  { source: set => set.syntax.cssClass,
+    generate: getSimpleColorGenerator('CSS class', 'entity.other.attribute-name.class') },
+  { source: set => set.syntax.cssId,
+    generate: getSimpleColorGenerator('CSS ID', 'entity.other.attribute-name.id') }
 ];
 
 export class VscodeThemeGenerator implements IThemeGenerator {

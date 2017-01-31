@@ -69,7 +69,9 @@ const sapphireColorSet: IColorSet = {
     class: sapphireColors.teal,
     classMember: sapphireColors.teal,
     type: sapphireColors.green,
-    this: sapphireColors.blue
+    this: sapphireColors.blue,
+    cssClass: sapphireColors.blue,
+    cssId: sapphireColors.red
   },
   ui: {
     background: '#151B24',
