@@ -123,10 +123,10 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   { source: set => set.syntax.number,
     generate: getSimpleColorGenerator('Number', 'constant.numeric') },
   { source: set => set.syntax.identifier,
-    generate: getSimpleColorGenerator('Identifier', 'variable, support.variable, support.class, support.constant') },
+    generate: getSimpleColorGenerator('Identifier', 'variable, support.variable, support.class, support.constant, meta.definition.variable entity.name.function') },
   // support.type.object: module.exports (ts)
   { source: set => set.syntax.keyword,
-    generate: getSimpleColorGenerator('Keyword', 'keyword, modifier, language.this, support.type.object') },
+    generate: getSimpleColorGenerator('Keyword', 'keyword, modifier, variable.language.this, support.type.object, constant.language') },
   // support.function: eg. join in path.join in TypeScript
   { source: set => set.syntax.functionCall,
     generate: getSimpleColorGenerator('Function call', 'entity.name.function, support.function') },
@@ -160,8 +160,6 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   // modifier: This includes things like access modifiers, static, readonly, etc.
   { source: set => set.syntax.modifier,
     generate: getSimpleColorGenerator('Modifier', 'modifier') },
-  { source: set => set.syntax.this,
-    generate: getSimpleColorGenerator('This variable', 'variable.language.this') },
   /**
    * JSON
    */
@@ -183,7 +181,7 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
    * Markdown
    */
   { source: set => set.syntax.keyword,    generate: getSimpleColorGenerator('Markdown heading', 'markup.heading') },
-  { source: set => set.syntax.identifier, generate: getSimpleColorGenerator('Markdown link text', 'text.html.markdown meta.link.inline') },
+  { source: set => set.syntax.identifier, generate: getSimpleColorGenerator('Markdown link text', 'text.html.markdown meta.link.inline, meta.link.reference') },
   // TODO: Clean up getFontStyleGenerator
   { source: set => 'undefined', generate: getFontStyleGenerator('Markdown italic', 'markup.italic', FontStyle.ITALIC) },
   { source: set => 'undefined', generate: getFontStyleGenerator('Markdown bold', 'markup.bold', FontStyle.BOLD) },
