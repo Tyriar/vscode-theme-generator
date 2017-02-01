@@ -81,13 +81,16 @@ const sapphireColorSet: IColorSet = {
     guide: '#263040',
     invisibles: '#263040',
     rangeHighlight: '#263040',
-    findMatchHighlight: '#4e2e62',
-    currentFindMatchHighlight: '#864fa9',
+    // Bright red 50% opacity
+    findMatchHighlight: '#cb606080',
+    // Brighter red 50% opacity
+    currentFindMatchHighlight: '#ff777780',
     selection: '#153958',
-    selectionHighlight: sapphireColors.greenDim,//'#3b404c',
+    // Blue 50% opacity
+    selectionHighlight: '#2b74b380',
     // White with ~10% opacity
-    wordHighlight: '#ffffff18',//sapphireColors.greenDim,
-    wordHighlightStrong: '#ffffff18',//sapphireColors.greenDim,
+    wordHighlight: '#ffffff18',
+    wordHighlightStrong: '#ffffff18',
     activeLinkForeground: sapphireColors.blue
   }
 };
