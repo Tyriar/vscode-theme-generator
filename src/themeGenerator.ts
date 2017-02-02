@@ -21,6 +21,7 @@ export interface IColorSet {
     cssClass?: string;
     cssId?: string;
     cssTag?: string;
+    markdownQuote?: string;
   }
   ui?: {
     /** The default background color */

@@ -181,8 +181,9 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   /**
    * Markdown
    */
-  { source: set => set.syntax.keyword,    generate: getSimpleColorGenerator('Markdown heading', 'markup.heading') },
-  { source: set => set.syntax.identifier, generate: getSimpleColorGenerator('Markdown link text', 'text.html.markdown meta.link.inline, meta.link.reference') },
+  { source: set => set.syntax.keyword,       generate: getSimpleColorGenerator('Markdown heading', 'markup.heading') },
+  { source: set => set.syntax.identifier,    generate: getSimpleColorGenerator('Markdown link text', 'text.html.markdown meta.link.inline, meta.link.reference') },,
+  { source: set => set.syntax.markdownQuote, generate: getSimpleColorGenerator('Markdown block quote', 'text.html.markdown markup.quote') },
   // TODO: Clean up getFontStyleGenerator
   { source: set => 'undefined', generate: getFontStyleGenerator('Markdown italic', 'markup.italic', FontStyle.ITALIC) },
   { source: set => 'undefined', generate: getFontStyleGenerator('Markdown bold', 'markup.bold', FontStyle.BOLD) },
