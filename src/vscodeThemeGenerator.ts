@@ -192,7 +192,14 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
    * Ini
    */
   { source: set => set.syntax.identifier, generate: getSimpleColorGenerator('INI property name', 'keyword.other.definition.ini') },
-  { source: set => set.syntax.keyword,    generate: getSimpleColorGenerator('INI section title', 'entity.name.section.group-title.ini') }
+  { source: set => set.syntax.keyword,    generate: getSimpleColorGenerator('INI section title', 'entity.name.section.group-title.ini') },
+  /**
+   * C#
+   */
+  { source: set => set.syntax.class,        generate: getSimpleColorGenerator('C# class', 'source.cs meta.class.identifier storage.type', FontStyle.UNDERLINE) },
+  { source: set => set.syntax.classMember,  generate: getSimpleColorGenerator('C# class', 'source.cs meta.method.identifier entity.name.function') },
+  { source: set => set.syntax.functionCall, generate: getSimpleColorGenerator('C# class', 'source.cs meta.method-call meta.method, source.cs entity.name.function') },
+  { source: set => set.syntax.type,         generate: getSimpleColorGenerator('C# class', 'source.cs storage.type') }
 ];
 
 export class VscodeThemeGenerator implements IThemeGenerator {
