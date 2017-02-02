@@ -5,6 +5,7 @@ An early proof of concept of a program that can generate theme files for editors
 ## Usage
 
 ```bash
+npm install
 npm run build && npm start
 ```
 
