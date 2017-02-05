@@ -200,7 +200,9 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   { source: set => set.syntax.classMember,  generate: getSimpleColorGenerator('C# class method',  'source.cs meta.method.identifier entity.name.function') },
   { source: set => set.syntax.functionCall, generate: getSimpleColorGenerator('C# function call', 'source.cs meta.method-call meta.method, source.cs entity.name.function') },
   { source: set => set.syntax.type,         generate: getSimpleColorGenerator('C# type',          'source.cs storage.type') },
-  { source: set => set.syntax.comment,      generate: getSimpleColorGenerator('C# preprocessor',  'source.cs meta.preprocessor') }
+  { source: set => set.syntax.type,         generate: getSimpleColorGenerator('C# return type',   'source.cs meta.method.return-type') }, // Lambda function returns do not use storage.type scope
+  { source: set => set.syntax.comment,      generate: getSimpleColorGenerator('C# preprocessor',  'source.cs meta.preprocessor') },
+  { source: set => set.ui.foreground,       generate: getSimpleColorGenerator('C# namespace',     'source.cs entity.name.type.namespace') } // Override generic entity.name.type rule
 ];
 
 export class VscodeThemeGenerator implements IThemeGenerator {
