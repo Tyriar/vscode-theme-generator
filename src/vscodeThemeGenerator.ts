@@ -196,10 +196,11 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   /**
    * C#
    */
-  { source: set => set.syntax.class,        generate: getSimpleColorGenerator('C# class', 'source.cs meta.class.identifier storage.type', FontStyle.UNDERLINE) },
-  { source: set => set.syntax.classMember,  generate: getSimpleColorGenerator('C# class', 'source.cs meta.method.identifier entity.name.function') },
-  { source: set => set.syntax.functionCall, generate: getSimpleColorGenerator('C# class', 'source.cs meta.method-call meta.method, source.cs entity.name.function') },
-  { source: set => set.syntax.type,         generate: getSimpleColorGenerator('C# class', 'source.cs storage.type') }
+  { source: set => set.syntax.class,        generate: getSimpleColorGenerator('C# class',         'source.cs meta.class.identifier storage.type', FontStyle.UNDERLINE) },
+  { source: set => set.syntax.classMember,  generate: getSimpleColorGenerator('C# class method',  'source.cs meta.method.identifier entity.name.function') },
+  { source: set => set.syntax.functionCall, generate: getSimpleColorGenerator('C# function call', 'source.cs meta.method-call meta.method, source.cs entity.name.function') },
+  { source: set => set.syntax.type,         generate: getSimpleColorGenerator('C# type',          'source.cs storage.type') },
+  { source: set => set.syntax.comment,      generate: getSimpleColorGenerator('C# preprocessor',  'source.cs meta.preprocessor') }
 ];
 
 export class VscodeThemeGenerator implements IThemeGenerator {
