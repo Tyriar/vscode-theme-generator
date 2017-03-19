@@ -78,6 +78,7 @@ const sapphireColorSet: IColorSet = {
   ui: {
     background: '#151B24',
     foreground: '#efefef',
+    accent: '#0a0d12',
     cursor: '#ffffff',
     guide: '#263040',
     invisibles: '#263040',
@@ -92,7 +93,24 @@ const sapphireColorSet: IColorSet = {
     // White with ~10% opacity
     wordHighlight: '#ffffff18',
     wordHighlightStrong: '#ffffff18',
-    activeLinkForeground: sapphireColors.blue
+    activeLinkForeground: sapphireColors.blue,
+
+    ansiBlack: '#666666',
+    ansiRed: sapphireColors.red,
+    ansiGreen: sapphireColors.green,
+    ansiYellow: sapphireColors.yellow,
+    ansiBlue: sapphireColors.blue,
+    ansiMagenta: sapphireColors.pink,
+    ansiCyan: sapphireColors.teal,
+    ansiWhite: '#efefef',
+    ansiBrightBlack: '#666666',
+    ansiBrightRed: sapphireColors.red,
+    ansiBrightGreen: sapphireColors.green,
+    ansiBrightYellow: sapphireColors.yellow,
+    ansiBrightBlue: sapphireColors.blue,
+    ansiBrightMagenta: sapphireColors.pink,
+    ansiBrightCyan: sapphireColors.teal,
+    ansiBrightWhite: '#efefef'
   }
 };
 const themeJson = new VscodeThemeGenerator().generateTheme('Sapphire theme', sapphireColorSet);

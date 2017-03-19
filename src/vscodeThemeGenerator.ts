@@ -2,12 +2,9 @@ import { IColorSet, IThemeGenerator } from './themeGenerator'
 
 export interface IVscodeJsonTheme {
   name?: string;
-  include?: string;
-  globalSettings?: {
-    background?: string
-    foreground?: string
-  };
   settings?: IVscodeJsonThemeSetting[];
+  tokenColors?: IVscodeJsonThemeSetting[];
+  colors?: {[key: string]: string};
 }
 
 export interface IVscodeJsonThemeSetting {
@@ -98,19 +95,41 @@ function getFontStyleGenerator(name: string, scope: string, fontStyle: number = 
 const vscodeJsonGlobalThemeRules: IRuleGenerator[] = [
   // Global settings
   { source: set => set.ui.background, generate: getGlobalSettingGenerator('background') },
-  { source: set => set.ui.foreground, generate: getGlobalSettingGenerator('foreground') },
-  { source: set => set.ui.cursor, generate: getGlobalSettingGenerator('caret') },
-  { source: set => set.ui.guide, generate: getGlobalSettingGenerator('guide') },
-  { source: set => set.ui.invisibles, generate: getGlobalSettingGenerator('invisibles') },
-  { source: set => set.ui.findMatchHighlight, generate: getGlobalSettingGenerator('findMatchHighlight') },
-  { source: set => set.ui.currentFindMatchHighlight, generate: getGlobalSettingGenerator('currentFindMatchHighlight') },
-  { source: set => set.ui.findRangeHighlight, generate: getGlobalSettingGenerator('findRangeHighlight') },
-  { source: set => set.ui.rangeHighlight, generate: getGlobalSettingGenerator('rangeHighlight') },
-  { source: set => set.ui.selection, generate: getGlobalSettingGenerator('selection') },
-  { source: set => set.ui.selectionHighlight, generate: getGlobalSettingGenerator('selectionHighlight') },
-  { source: set => set.ui.wordHighlight, generate: getGlobalSettingGenerator('wordHighlight') },
-  { source: set => set.ui.wordHighlightStrong, generate: getGlobalSettingGenerator('wordHighlightStrong') },
-  { source: set => set.ui.activeLinkForeground, generate: getGlobalSettingGenerator('activeLinkForeground') }
+  { source: set => set.ui.foreground, generate: getGlobalSettingGenerator('foreground') }
+];
+
+const vscodeColorRules: IRuleGenerator[] = [
+
+  { source: set => set.ui.background, generate: getGlobalSettingGenerator('editorBackground') },
+  { source: set => set.ui.foreground, generate: getGlobalSettingGenerator('editorForeground') },
+  { source: set => set.ui.cursor, generate: getGlobalSettingGenerator('editorCaret') },
+  { source: set => set.ui.guide, generate: getGlobalSettingGenerator('editorGuide') },
+  { source: set => set.ui.invisibles, generate: getGlobalSettingGenerator('editorInvisibles') },
+  { source: set => set.ui.findMatchHighlight, generate: getGlobalSettingGenerator('editorFindMatchHighlight') },
+  { source: set => set.ui.currentFindMatchHighlight, generate: getGlobalSettingGenerator('editorCurrentFindMatchHighlight') },
+  { source: set => set.ui.findRangeHighlight, generate: getGlobalSettingGenerator('editorFindRangeHighlight') },
+  { source: set => set.ui.rangeHighlight, generate: getGlobalSettingGenerator('editorRangeHighlight') },
+  { source: set => set.ui.selection, generate: getGlobalSettingGenerator('editorSelection') },
+  { source: set => set.ui.selectionHighlight, generate: getGlobalSettingGenerator('editorSelectionHighlight') },
+  { source: set => set.ui.wordHighlight, generate: getGlobalSettingGenerator('editorWordHighlight') },
+  { source: set => set.ui.wordHighlightStrong, generate: getGlobalSettingGenerator('editorWordHighlightStrong') },
+  { source: set => set.ui.activeLinkForeground, generate: getGlobalSettingGenerator('editorActiveLinkForeground') },
+  { source: set => set.ui.ansiBlack, generate: getGlobalSettingGenerator('terminalAnsiBlack') },
+  { source: set => set.ui.ansiRed, generate: getGlobalSettingGenerator('terminalAnsiRed') },
+  { source: set => set.ui.ansiGreen, generate: getGlobalSettingGenerator('terminalAnsiGreen') },
+  { source: set => set.ui.ansiYellow, generate: getGlobalSettingGenerator('terminalAnsiYellow') },
+  { source: set => set.ui.ansiBlue, generate: getGlobalSettingGenerator('terminalAnsiBlue') },
+  { source: set => set.ui.ansiMagenta, generate: getGlobalSettingGenerator('terminalAnsiMagenta') },
+  { source: set => set.ui.ansiCyan, generate: getGlobalSettingGenerator('terminalAnsiCyan') },
+  { source: set => set.ui.ansiWhite, generate: getGlobalSettingGenerator('terminalAnsiWhite') },
+  { source: set => set.ui.ansiBrightBlack, generate: getGlobalSettingGenerator('terminalAnsiBrightBlack') },
+  { source: set => set.ui.ansiBrightRed, generate: getGlobalSettingGenerator('terminalAnsiBrightRed') },
+  { source: set => set.ui.ansiBrightGreen, generate: getGlobalSettingGenerator('terminalAnsiBrightGreen') },
+  { source: set => set.ui.ansiBrightYellow, generate: getGlobalSettingGenerator('terminalAnsiBrightYellow') },
+  { source: set => set.ui.ansiBrightBlue, generate: getGlobalSettingGenerator('terminalAnsiBrightBlue') },
+  { source: set => set.ui.ansiBrightMagenta, generate: getGlobalSettingGenerator('terminalAnsiBrightMagenta') },
+  { source: set => set.ui.ansiBrightCyan, generate: getGlobalSettingGenerator('terminalAnsiBrightCyan') },
+  { source: set => set.ui.ansiBrightWhite, generate: getGlobalSettingGenerator('terminalAnsiBrightWhite') },
 ];
 
 // An ordered list of rules to be applied if the source conditions are met
@@ -209,7 +228,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
   public generateTheme(name: string, colorSet: IColorSet): string {
     const theme: IVscodeJsonTheme = {};
     theme.name = name;
-    theme.settings = [];
+    theme.tokenColors = [];
 
     const globalSetting: any = {
       name: 'Global settings',
@@ -222,14 +241,29 @@ export class VscodeThemeGenerator implements IThemeGenerator {
         globalSetting.settings[Object.keys(generated)[0]] = color;
       }
     });
-    theme.settings.push(globalSetting);
+    theme.tokenColors.push(globalSetting);
 
     vscodeJsonThemeRules.forEach(ruleGenerator => {
       const color = <string>ruleGenerator.source(colorSet);
       if (color) {
-        theme.settings.push(ruleGenerator.generate(color));
+        theme.tokenColors.push(ruleGenerator.generate(color));
       }
     });
+
+    theme.colors = {};
+    vscodeColorRules.forEach(ruleGenerator => {
+      const color = <string>ruleGenerator.source(colorSet);
+      if (color) {
+        const generated = ruleGenerator.generate(color);
+        theme.colors[Object.keys(generated)[0]] = color;
+      }
+    });
+
+    if (colorSet.ui.accent) {
+      theme.colors['statusBarBackground'] = colorSet.ui.accent;
+    }
+    theme.colors['tabsContainerBackground'] = colorSet.ui.accent;;
+
     return JSON.stringify(theme);
   }
 }

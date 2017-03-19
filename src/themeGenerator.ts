@@ -28,6 +28,8 @@ export interface IColorSet {
     background?: string;
     /** The default foreground color */
     foreground?: string;
+    /** The accent color */
+    accent?: string;
     /** The color of the editor cursor/caret */
     cursor?: string;
     /** Visible whitespace (editor.renderWhitespace) */
@@ -49,5 +51,22 @@ export interface IColorSet {
     wordHighlight?: string;
     wordHighlightStrong?: string;
     activeLinkForeground?: string;
+
+    ansiBlack?: string;
+    ansiRed?: string;
+    ansiGreen?: string;
+    ansiYellow?: string;
+    ansiBlue?: string;
+    ansiMagenta?: string;
+    ansiCyan?: string;
+    ansiWhite?: string;
+    ansiBrightBlack?: string;
+    ansiBrightRed?: string;
+    ansiBrightGreen?: string;
+    ansiBrightYellow?: string;
+    ansiBrightBlue?: string;
+    ansiBrightMagenta?: string;
+    ansiBrightCyan?: string;
+    ansiBrightWhite?: string;
   }
 }
