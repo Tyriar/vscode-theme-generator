@@ -3,4 +3,4 @@ node_modules/
 typings/
 
 demo/generate.js
-demo/theme/theme.json
+demo/*.json

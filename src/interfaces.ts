@@ -2,17 +2,19 @@ export interface IThemeGenerator {
   generateTheme(name: string, colorSet: IColorSet): string;
 }
 
+export interface IBaseColorSet  {
+  /** The default background color */
+  background: string;
+  /** The default foreground color */
+  foreground: string;
+  color1: string;
+  color2: string;
+  color3: string;
+  color4: string;
+}
+
 export interface IColorSet {
-  base: {
-    /** The default background color */
-    background: string;
-    /** The default foreground color */
-    foreground: string;
-    accent1: string;
-    accent2: string;
-    accent3: string;
-    accent4: string;
-  },
+  base: IBaseColorSet,
   syntax?: {
     boolean?: string;
     function?: string;
@@ -27,7 +29,6 @@ export interface IColorSet {
     classMember?: string;
     type?: string;
     modifier?: string;
-    this?: string;
     cssClass?: string;
     cssId?: string;
     cssTag?: string;
@@ -56,7 +57,7 @@ export interface IColorSet {
     wordHighlightStrong?: string;
     activeLinkForeground?: string;
   },
-  terminal: {
+  terminal?: {
     black?: string;
     red?: string;
     green?: string;

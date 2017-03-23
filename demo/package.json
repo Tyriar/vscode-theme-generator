@@ -12,6 +12,11 @@
         "label": "Generated Theme",
         "uiTheme": "vs-dark",
         "path": "./theme.json"
+      },
+      {
+        "label": "Generated Theme (Minimal)",
+        "uiTheme": "vs-dark",
+        "path": "./theme-minimal.json"
       }
     ]
   }

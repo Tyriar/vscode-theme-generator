@@ -18,10 +18,10 @@ const sapphireColorSet: IColorSet = {
   base: {
     background: '#12171f',
     foreground: '#efefef',
-    accent1: sapphireColors.blue,
-    accent2: sapphireColors.red,
-    accent3: sapphireColors.green,
-    accent4: sapphireColors.yellow,
+    color1: sapphireColors.blue,
+    color2: sapphireColors.red,
+    color3: sapphireColors.green,
+    color4: sapphireColors.yellow,
   },
   syntax: {
     identifier: sapphireColors.blueLight,
@@ -36,7 +36,6 @@ const sapphireColorSet: IColorSet = {
     class: sapphireColors.teal,
     classMember: sapphireColors.teal,
     type: sapphireColors.green,
-    this: sapphireColors.blue,
     cssClass: sapphireColors.blue,
     cssId: sapphireColors.red,
     cssTag: sapphireColors.teal,
@@ -58,24 +57,37 @@ const sapphireColorSet: IColorSet = {
     wordHighlight: '#ffffff18',
     wordHighlightStrong: '#ffffff18',
     activeLinkForeground: sapphireColors.blue,
-
-    ansiBlack: '#666666',
-    ansiRed: sapphireColors.red,
-    ansiGreen: sapphireColors.green,
-    ansiYellow: sapphireColors.yellow,
-    ansiBlue: sapphireColors.blue,
-    ansiMagenta: sapphireColors.pink,
-    ansiCyan: sapphireColors.teal,
-    ansiWhite: '#efefef',
-    ansiBrightBlack: '#666666',
-    ansiBrightRed: sapphireColors.red,
-    ansiBrightGreen: sapphireColors.green,
-    ansiBrightYellow: sapphireColors.yellow,
-    ansiBrightBlue: sapphireColors.blue,
-    ansiBrightMagenta: sapphireColors.pink,
-    ansiBrightCyan: sapphireColors.teal,
-    ansiBrightWhite: '#efefef'
+  },
+  terminal: {
+    black: '#666666',
+    red: sapphireColors.red,
+    green: sapphireColors.green,
+    yellow: sapphireColors.yellow,
+    blue: sapphireColors.blue,
+    magenta: sapphireColors.pink,
+    cyan: sapphireColors.teal,
+    white: '#efefef',
+    brightBlack: '#666666',
+    brightRed: sapphireColors.red,
+    brightGreen: sapphireColors.green,
+    brightYellow: sapphireColors.yellow,
+    brightBlue: sapphireColors.blue,
+    brightMagenta: sapphireColors.pink,
+    brightCyan: sapphireColors.teal,
+    brightWhite: '#efefef'
   }
 };
 
+const minimalColorSet: IColorSet = {
+  base: {
+    background: '#12171f',
+    foreground: '#efefef',
+    color1: sapphireColors.blue,
+    color2: sapphireColors.red,
+    color3: sapphireColors.green,
+    color4: sapphireColors.yellow,
+  },
+};
+
 generateTheme('Generated Theme', sapphireColorSet, path.join(__dirname, 'theme.json'));
+generateTheme('Generated Theme (minimal)', minimalColorSet, path.join(__dirname, 'theme-minimal.json'));
