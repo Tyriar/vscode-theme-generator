@@ -44,7 +44,7 @@ Support below means that the editor has explicit support for the languages; the 
 | HTML | :white_check_mark:
 | TypeScript | :white_check_mark:
 
-## Usage
+## Development
 
 ```bash
 npm run dev
