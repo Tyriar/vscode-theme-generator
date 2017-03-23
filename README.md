@@ -17,7 +17,8 @@ All other VS Code theme colors are then derived from those base colors, with the
 This is all that's needed to generate a great looking theme:
 
 ```ts
-const minimalColorSet: IColorSet = {
+import { generateTheme, IColorSet } from 'vscode-theme-generator';
+const colorSet: IColorSet = {
   base: {
     background: '#12171F',
     foreground: '#EFEFEF',
@@ -27,7 +28,7 @@ const minimalColorSet: IColorSet = {
     color4: '#fff099',
   },
 };
-generateTheme('Generated Theme (minimal)', minimalColorSet, path.join(__dirname, 'theme-minimal.json'));
+generateTheme('My Theme', colorSet, path.join(__dirname, 'theme.json'));
 ```
 
 ![](./images/example.png)
