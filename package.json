@@ -12,6 +12,9 @@
   "typescript": {
     "definition": "index.d.ts"
   },
+  "files": [
+    "dist/*.js"
+  ],
   "devDependencies": {
     "@types/node": "^6.0.41",
     "typescript": "^2.0.3"
