@@ -76,7 +76,7 @@ const sapphireColorSet: IColorSet = {
     markdownQuote: '#c0c0c0'
   },
   ui: {
-    background: '#151B24',
+    background: '#12171f',
     foreground: '#efefef',
     accent: '#0a0d12',
     cursor: '#ffffff',

@@ -99,7 +99,6 @@ const vscodeJsonGlobalThemeRules: IRuleGenerator[] = [
 ];
 
 const vscodeColorRules: IRuleGenerator[] = [
-
   { source: set => set.ui.background, generate: getGlobalSettingGenerator('editorBackground') },
   { source: set => set.ui.foreground, generate: getGlobalSettingGenerator('editorForeground') },
   { source: set => set.ui.cursor, generate: getGlobalSettingGenerator('editorCaret') },
@@ -259,11 +258,44 @@ export class VscodeThemeGenerator implements IThemeGenerator {
       }
     });
 
-    if (colorSet.ui.accent) {
-      theme.colors['statusBarBackground'] = colorSet.ui.accent;
+    if (colorSet.ui.background) {
+      theme.colors['tabsContainerBackground'] = this._lighten(colorSet.ui.background, 0.2);
+      theme.colors['inactiveTabBackground'] = this._lighten(colorSet.ui.background, 0.4);
+      theme.colors['sideBarBackground'] = this._lighten(colorSet.ui.background, 0.2);
+      theme.colors['panelBackground'] = this._lighten(colorSet.ui.background, 0.2);
+      theme.colors['activityBarBackground'] = this._lighten(colorSet.ui.background, 0.4);
+      theme.colors['statusBarBackground'] = this._darken(colorSet.ui.background, 0.2);
+      // Peek editor
+      theme.colors['editorPeekEditorBackground'] = this._darken(colorSet.ui.background, 0.2);
     }
-    theme.colors['tabsContainerBackground'] = colorSet.ui.accent;;
 
     return JSON.stringify(theme);
+  }
+
+  private _lighten(color: string, amount: number): string {
+    const MAX = 255;
+    let r = parseInt(color.substr(1, 2), 16);
+    let g = parseInt(color.substr(3, 2), 16);
+    let b = parseInt(color.substr(5, 2), 16);
+    r = Math.floor(r + (r * amount));
+    g = Math.floor(g + (g * amount));
+    b = Math.floor(b + (b * amount));
+    let rs = r.toString(16);
+    if (rs.length === 1) {
+      rs = '0' + rs;
+    }
+    let gs = g.toString(16);
+    if (gs.length === 1) {
+      gs = '0' + gs;
+    }
+    let bs = b.toString(16);
+    if (bs.length === 1) {
+      bs = '0' + bs;
+    }
+    return `#${rs}${gs}${bs}`;
+  }
+
+  private _darken(color: string, amount: number): string {
+    return this._lighten(color, -amount);
   }
 }
