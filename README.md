@@ -12,6 +12,26 @@ What if all you needed to do to generate a theme was specify a few colors and ev
 
 All other VS Code theme colors are then derived from those base colors, with the option to tweak each underlying color as well.
 
+## Example
+
+This is all that's needed to generate a great looking theme:
+
+```ts
+const minimalColorSet: IColorSet = {
+  base: {
+    background: '#12171F',
+    foreground: '#EFEFEF',
+    color1: '#399EF4',
+    color2: '#DA6771',
+    color3: '#4EB071',
+    color4: '#fff099',
+  },
+};
+generateTheme('Generated Theme (minimal)', minimalColorSet, path.join(__dirname, 'theme-minimal.json'));
+```
+
+![](./images/example.png)
+
 ## Support
 
 Support below means that the editor has explicit support for the languages; the colors should match their meanings. Other languages will probably still look alright but there is no guarentee that they will.
