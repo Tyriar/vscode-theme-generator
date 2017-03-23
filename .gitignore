@@ -2,4 +2,5 @@ dist/
 node_modules/
 typings/
 
-out/theme.json
+demo/generate.js
+demo/theme/theme.json

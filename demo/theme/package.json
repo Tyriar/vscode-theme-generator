@@ -1,6 +1,6 @@
 {
   "name": "generated-theme",
-  "displayName": "Generated THeme",
+  "displayName": "Generated Theme",
   "description": "...",
   "categories": [ "Themes" ],
   "version": "0.0.1",
@@ -9,7 +9,7 @@
   "contributes": {
     "themes": [
       {
-        "label": "Generated theme",
+        "label": "Generated Theme",
         "uiTheme": "vs-dark",
         "path": "./theme.json"
       }

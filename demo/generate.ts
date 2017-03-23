@@ -73,4 +73,4 @@ const sapphireColorSet: IColorSet = {
   }
 };
 
-generateTheme('Sapphire theme', sapphireColorSet, path.join(__dirname, 'theme.json'));
+generateTheme('Generated Theme', sapphireColorSet, path.join(__dirname, 'theme', 'theme.json'));

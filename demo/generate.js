@@ -70,4 +70,4 @@ var sapphireColorSet = {
         ansiBrightWhite: '#efefef'
     }
 };
-dist_1.generateTheme('Sapphire theme', sapphireColorSet, path.join(__dirname, 'theme.json'));
+dist_1.generateTheme('Generated Theme', sapphireColorSet, path.join(__dirname, 'theme', 'theme.json'));

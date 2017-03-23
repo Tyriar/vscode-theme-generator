@@ -16,8 +16,10 @@ Support below means that the editor has explicit support for the languages; the 
 ## Usage
 
 ```bash
-npm install
-npm run build && npm start
+npm run dev
+
+# In another shell
+npm run demo
 ```
 
-To test VS Code extensions, <kbd>F5</kbd> will launch the Code debugger with the theme available to switch to.
+Them in VS Code press <kbd>F5</kbd> to launch the debugger with the generated theme available to switch to.
