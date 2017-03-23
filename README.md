@@ -29,7 +29,7 @@ Support below means that the editor has explicit support for the languages; the 
 npm run dev
 
 # In another shell
-npm run demo
+npm start
 ```
 
 Them in VS Code press <kbd>F5</kbd> to launch the debugger with the generated theme available to switch to.

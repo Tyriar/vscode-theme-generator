@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsc -w",
-    "demo": "tsc demo/generate.ts && node demo/generate.js"
+    "prestart": "tsc demo/generate.ts",
+    "start": "node demo/generate.js"
   },
   "author": "Tyriar",
   "license": "MIT",

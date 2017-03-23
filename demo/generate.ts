@@ -15,6 +15,14 @@ const sapphireColors = {
 }
 
 const sapphireColorSet: IColorSet = {
+  base: {
+    background: '#12171f',
+    foreground: '#efefef',
+    accent1: sapphireColors.blue,
+    accent2: sapphireColors.red,
+    accent3: sapphireColors.green,
+    accent4: sapphireColors.yellow,
+  },
   syntax: {
     identifier: sapphireColors.blueLight,
     string: sapphireColors.red,
@@ -35,9 +43,6 @@ const sapphireColorSet: IColorSet = {
     markdownQuote: '#c0c0c0'
   },
   ui: {
-    background: '#12171f',
-    foreground: '#efefef',
-    accent: '#0a0d12',
     cursor: '#ffffff',
     guide: '#263040',
     invisibles: '#263040',

@@ -3,6 +3,16 @@ export interface IThemeGenerator {
 }
 
 export interface IColorSet {
+  base: {
+    /** The default background color */
+    background: string;
+    /** The default foreground color */
+    foreground: string;
+    accent1: string;
+    accent2: string;
+    accent3: string;
+    accent4: string;
+  },
   syntax?: {
     boolean?: string;
     function?: string;
@@ -24,12 +34,6 @@ export interface IColorSet {
     markdownQuote?: string;
   }
   ui?: {
-    /** The default background color */
-    background?: string;
-    /** The default foreground color */
-    foreground?: string;
-    /** The accent color */
-    accent?: string;
     /** The color of the editor cursor/caret */
     cursor?: string;
     /** Visible whitespace (editor.renderWhitespace) */
@@ -51,22 +55,23 @@ export interface IColorSet {
     wordHighlight?: string;
     wordHighlightStrong?: string;
     activeLinkForeground?: string;
-
-    ansiBlack?: string;
-    ansiRed?: string;
-    ansiGreen?: string;
-    ansiYellow?: string;
-    ansiBlue?: string;
-    ansiMagenta?: string;
-    ansiCyan?: string;
-    ansiWhite?: string;
-    ansiBrightBlack?: string;
-    ansiBrightRed?: string;
-    ansiBrightGreen?: string;
-    ansiBrightYellow?: string;
-    ansiBrightBlue?: string;
-    ansiBrightMagenta?: string;
-    ansiBrightCyan?: string;
-    ansiBrightWhite?: string;
+  },
+  terminal: {
+    black?: string;
+    red?: string;
+    green?: string;
+    yellow?: string;
+    blue?: string;
+    magenta?: string;
+    cyan?: string;
+    white?: string;
+    brightBlack?: string;
+    brightRed?: string;
+    brightGreen?: string;
+    brightYellow?: string;
+    brightBlue?: string;
+    brightMagenta?: string;
+    brightCyan?: string;
+    brightWhite?: string;
   }
 }

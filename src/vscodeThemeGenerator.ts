@@ -1,4 +1,4 @@
-import { IColorSet, IThemeGenerator } from './themeGenerator'
+import { IColorSet, IThemeGenerator } from './interfaces'
 
 export interface IVscodeJsonTheme {
   name?: string;
@@ -94,13 +94,13 @@ function getFontStyleGenerator(name: string, scope: string, fontStyle: number = 
 
 const vscodeJsonGlobalThemeRules: IRuleGenerator[] = [
   // Global settings
-  { source: set => set.ui.background, generate: getGlobalSettingGenerator('background') },
-  { source: set => set.ui.foreground, generate: getGlobalSettingGenerator('foreground') }
+  { source: set => set.base.background, generate: getGlobalSettingGenerator('background') },
+  { source: set => set.base.foreground, generate: getGlobalSettingGenerator('foreground') }
 ];
 
 const vscodeColorRules: IRuleGenerator[] = [
-  { source: set => set.ui.background, generate: getGlobalSettingGenerator('editorBackground') },
-  { source: set => set.ui.foreground, generate: getGlobalSettingGenerator('editorForeground') },
+  { source: set => set.base.background, generate: getGlobalSettingGenerator('editorBackground') },
+  { source: set => set.base.foreground, generate: getGlobalSettingGenerator('editorForeground') },
   { source: set => set.ui.cursor, generate: getGlobalSettingGenerator('editorCaret') },
   { source: set => set.ui.guide, generate: getGlobalSettingGenerator('editorGuide') },
   { source: set => set.ui.invisibles, generate: getGlobalSettingGenerator('editorInvisibles') },
@@ -113,22 +113,23 @@ const vscodeColorRules: IRuleGenerator[] = [
   { source: set => set.ui.wordHighlight, generate: getGlobalSettingGenerator('editorWordHighlight') },
   { source: set => set.ui.wordHighlightStrong, generate: getGlobalSettingGenerator('editorWordHighlightStrong') },
   { source: set => set.ui.activeLinkForeground, generate: getGlobalSettingGenerator('editorActiveLinkForeground') },
-  { source: set => set.ui.ansiBlack, generate: getGlobalSettingGenerator('terminalAnsiBlack') },
-  { source: set => set.ui.ansiRed, generate: getGlobalSettingGenerator('terminalAnsiRed') },
-  { source: set => set.ui.ansiGreen, generate: getGlobalSettingGenerator('terminalAnsiGreen') },
-  { source: set => set.ui.ansiYellow, generate: getGlobalSettingGenerator('terminalAnsiYellow') },
-  { source: set => set.ui.ansiBlue, generate: getGlobalSettingGenerator('terminalAnsiBlue') },
-  { source: set => set.ui.ansiMagenta, generate: getGlobalSettingGenerator('terminalAnsiMagenta') },
-  { source: set => set.ui.ansiCyan, generate: getGlobalSettingGenerator('terminalAnsiCyan') },
-  { source: set => set.ui.ansiWhite, generate: getGlobalSettingGenerator('terminalAnsiWhite') },
-  { source: set => set.ui.ansiBrightBlack, generate: getGlobalSettingGenerator('terminalAnsiBrightBlack') },
-  { source: set => set.ui.ansiBrightRed, generate: getGlobalSettingGenerator('terminalAnsiBrightRed') },
-  { source: set => set.ui.ansiBrightGreen, generate: getGlobalSettingGenerator('terminalAnsiBrightGreen') },
-  { source: set => set.ui.ansiBrightYellow, generate: getGlobalSettingGenerator('terminalAnsiBrightYellow') },
-  { source: set => set.ui.ansiBrightBlue, generate: getGlobalSettingGenerator('terminalAnsiBrightBlue') },
-  { source: set => set.ui.ansiBrightMagenta, generate: getGlobalSettingGenerator('terminalAnsiBrightMagenta') },
-  { source: set => set.ui.ansiBrightCyan, generate: getGlobalSettingGenerator('terminalAnsiBrightCyan') },
-  { source: set => set.ui.ansiBrightWhite, generate: getGlobalSettingGenerator('terminalAnsiBrightWhite') },
+  // Terminal
+  { source: set => set.terminal.black, generate: getGlobalSettingGenerator('terminalAnsiBlack') },
+  { source: set => set.terminal.red, generate: getGlobalSettingGenerator('terminalAnsiRed') },
+  { source: set => set.terminal.green, generate: getGlobalSettingGenerator('terminalAnsiGreen') },
+  { source: set => set.terminal.yellow, generate: getGlobalSettingGenerator('terminalAnsiYellow') },
+  { source: set => set.terminal.blue, generate: getGlobalSettingGenerator('terminalAnsiBlue') },
+  { source: set => set.terminal.magenta, generate: getGlobalSettingGenerator('terminalAnsiMagenta') },
+  { source: set => set.terminal.cyan, generate: getGlobalSettingGenerator('terminalAnsiCyan') },
+  { source: set => set.terminal.white, generate: getGlobalSettingGenerator('terminalAnsiWhite') },
+  { source: set => set.terminal.brightBlack, generate: getGlobalSettingGenerator('terminalAnsiBrightBlack') },
+  { source: set => set.terminal.brightRed, generate: getGlobalSettingGenerator('terminalAnsiBrightRed') },
+  { source: set => set.terminal.brightGreen, generate: getGlobalSettingGenerator('terminalAnsiBrightGreen') },
+  { source: set => set.terminal.brightYellow, generate: getGlobalSettingGenerator('terminalAnsiBrightYellow') },
+  { source: set => set.terminal.brightBlue, generate: getGlobalSettingGenerator('terminalAnsiBrightBlue') },
+  { source: set => set.terminal.brightMagenta, generate: getGlobalSettingGenerator('terminalAnsiBrightMagenta') },
+  { source: set => set.terminal.brightCyan, generate: getGlobalSettingGenerator('terminalAnsiBrightCyan') },
+  { source: set => set.terminal.brightWhite, generate: getGlobalSettingGenerator('terminalAnsiBrightWhite') },
 ];
 
 // An ordered list of rules to be applied if the source conditions are met
@@ -220,7 +221,7 @@ const vscodeJsonThemeRules: IRuleGenerator[] = [
   { source: set => set.syntax.type,         generate: getSimpleColorGenerator('C# type',          'source.cs storage.type') },
   { source: set => set.syntax.type,         generate: getSimpleColorGenerator('C# return type',   'source.cs meta.method.return-type') }, // Lambda function returns do not use storage.type scope
   { source: set => set.syntax.comment,      generate: getSimpleColorGenerator('C# preprocessor',  'source.cs meta.preprocessor') },
-  { source: set => set.ui.foreground,       generate: getSimpleColorGenerator('C# namespace',     'source.cs entity.name.type.namespace') } // Override generic entity.name.type rule
+  { source: set => set.base.foreground,     generate: getSimpleColorGenerator('C# namespace',     'source.cs entity.name.type.namespace') } // Override generic entity.name.type rule
 ];
 
 export class VscodeThemeGenerator implements IThemeGenerator {
@@ -258,16 +259,14 @@ export class VscodeThemeGenerator implements IThemeGenerator {
       }
     });
 
-    if (colorSet.ui.background) {
-      theme.colors['tabsContainerBackground'] = this._lighten(colorSet.ui.background, 0.2);
-      theme.colors['inactiveTabBackground'] = this._lighten(colorSet.ui.background, 0.4);
-      theme.colors['sideBarBackground'] = this._lighten(colorSet.ui.background, 0.2);
-      theme.colors['panelBackground'] = this._lighten(colorSet.ui.background, 0.2);
-      theme.colors['activityBarBackground'] = this._lighten(colorSet.ui.background, 0.4);
-      theme.colors['statusBarBackground'] = this._darken(colorSet.ui.background, 0.2);
-      // Peek editor
-      theme.colors['editorPeekEditorBackground'] = this._darken(colorSet.ui.background, 0.2);
-    }
+    theme.colors['tabsContainerBackground'] = this._lighten(colorSet.base.background, 0.2);
+    theme.colors['inactiveTabBackground'] = this._lighten(colorSet.base.background, 0.4);
+    theme.colors['sideBarBackground'] = this._lighten(colorSet.base.background, 0.2);
+    theme.colors['panelBackground'] = this._lighten(colorSet.base.background, 0.2);
+    theme.colors['activityBarBackground'] = this._lighten(colorSet.base.background, 0.4);
+    theme.colors['statusBarBackground'] = this._darken(colorSet.base.background, 0.2);
+    // Peek editor
+    theme.colors['editorPeekEditorBackground'] = this._darken(colorSet.base.background, 0.2);
 
     return JSON.stringify(theme);
   }
