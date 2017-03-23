@@ -1,7 +1,7 @@
 {
-  "name": "theme-generator",
+  "name": "vscode-theme-generator",
   "version": "0.0.1",
-  "description": "Generates editor/terminal themes using a set of colors",
+  "description": "Easily generate themes for VS Code with only a few colors",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
