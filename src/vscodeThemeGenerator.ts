@@ -53,6 +53,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     });
     theme.tokenColors.push(globalSettings);
 
+    // TODO: Expose details options on IColorSet
     theme.colors['tabsContainerBackground'] = lighten(colorSet.base.background, 0.2);
     theme.colors['inactiveTabBackground'] = lighten(colorSet.base.background, 0.4);
     theme.colors['sideBarBackground'] = lighten(colorSet.base.background, 0.2);
@@ -61,6 +62,15 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['statusBarBackground'] = darken(colorSet.base.background, 0.2);
     // Peek editor
     theme.colors['editorPeekEditorBackground'] = darken(colorSet.base.background, 0.2);
+    theme.colors['editorPeekTitleBackground'] = colorSet.base.background;
+    theme.colors['editorPeekBorder'] = colorSet.base.color1;
+    theme.colors['editorPeekResultsBackground'] = lighten(colorSet.base.background, 0.2);
+    theme.colors['editorPeekFindMatchHighlight'] = colorSet.base.color2 + '4d';
+    theme.colors['editorPeekReferenceHighlight'] = colorSet.base.color2 + '4d';
+    // Find widget
+    theme.colors['editorFindWidgetBackground'] = lighten(colorSet.base.background, 0.2);
+    theme.colors['editorFindInputBackground'] = lighten(colorSet.base.background, 0.4);
+    theme.colors['editorFindCheckedBorders'] = colorSet.base.color1;
 
     return JSON.stringify(theme);
   }
