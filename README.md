@@ -1,5 +1,7 @@
 # vscode-theme-generator
 
+⚠️ This is a preview that leverages the [upcoming VS Code theming options](https://github.com/Microsoft/vscode/issues/3112), you will need to regenerate your theme when 1.12 is released when the API finalized
+
 **The Problem**
 
 - New themes are typically forked from other themes, carrying the bugs with them
