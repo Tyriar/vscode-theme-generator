@@ -59,6 +59,8 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['sideBarBackground'] = lighten(colorSet.base.background, 0.2);
     theme.colors['panelBackground'] = lighten(colorSet.base.background, 0.2);
     theme.colors['activityBarBackground'] = lighten(colorSet.base.background, 0.4);
+    theme.colors['inputBoxBackground'] = lighten(colorSet.base.background, 0.4);
+    theme.colors['dropdownBackground'] = lighten(colorSet.base.background, 0.4);
     theme.colors['statusBarBackground'] = darken(colorSet.base.background, 0.2);
     // Peek editor
     theme.colors['editorPeekEditorBackground'] = darken(colorSet.base.background, 0.2);
