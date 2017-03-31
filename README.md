@@ -28,7 +28,7 @@ const colorSet: IColorSet = {
     color2: '#DA6771',
     color3: '#4EB071',
     color4: '#fff099',
-  },
+  }
 };
 generateTheme('My Theme', colorSet, path.join(__dirname, 'theme.json'));
 ```
@@ -50,9 +50,6 @@ Support below means that the standard VS Code grammar has explicit support for t
 
 ```bash
 npm run dev
-
-# In another shell
-npm start
 ```
 
-Them in VS Code press <kbd>F5</kbd> to launch the debugger with the generated theme available to switch to.
+Then in VS Code press <kbd>F5</kbd> to build demo and launch the debugger with the generated themes available to switch to.
