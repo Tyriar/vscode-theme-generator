@@ -75,8 +75,6 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['editorFindCheckedBorders'] = colorSet.base.color1;
     // Editor marker
     theme.colors['editorMarkerNavigationBackground'] = lighten(colorSet.base.background, 0.2);
-    theme.colors['editorMarkerNavigationError'] = colorSet.base.color2;
-    theme.colors['editorMarkerNavigationWarning'] = colorSet.base.color2;
 
     return JSON.stringify(theme);
   }
