@@ -59,16 +59,16 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['sideBarBackground'] = lighten(colorSet.base.background, 0.2);
     theme.colors['panelBackground'] = lighten(colorSet.base.background, 0.2);
     theme.colors['activityBarBackground'] = lighten(colorSet.base.background, 0.4);
-    theme.colors['inputBoxBackground'] = lighten(colorSet.base.background, 0.4);
-    theme.colors['dropdownBackground'] = lighten(colorSet.base.background, 0.4);
+    theme.colors['activityBadgeBackground'] = colorSet.base.color1;
+    theme.colors['inputBoxBackground'] = lighten(colorSet.base.background, 0.6);
+    theme.colors['dropdownBackground'] = lighten(colorSet.base.background, 0.6);
     theme.colors['statusBarBackground'] = darken(colorSet.base.background, 0.2);
+    theme.colors['focusedElementOutline'] = colorSet.base.color1;
     // Peek editor
     theme.colors['editorPeekEditorBackground'] = darken(colorSet.base.background, 0.2);
     theme.colors['editorPeekTitleBackground'] = colorSet.base.background;
     theme.colors['editorPeekBorder'] = colorSet.base.color1;
     theme.colors['editorPeekResultsBackground'] = lighten(colorSet.base.background, 0.2);
-    theme.colors['editorPeekFindMatchHighlight'] = colorSet.base.color2 + '4d';
-    theme.colors['editorPeekReferenceHighlight'] = colorSet.base.color2 + '4d';
     // Find widget
     theme.colors['editorFindWidgetBackground'] = lighten(colorSet.base.background, 0.2);
     theme.colors['editorFindInputBackground'] = lighten(colorSet.base.background, 0.4);
