@@ -14,7 +14,8 @@
     "definition": "index.d.ts"
   },
   "files": [
-    "dist/*.js"
+    "dist/*.js",
+    "dist/*.d.ts"
   ],
   "devDependencies": {
     "@types/node": "^6.0.41",
