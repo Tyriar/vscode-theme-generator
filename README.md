@@ -38,7 +38,7 @@ generateTheme('My Theme', colorSet, path.join(__dirname, 'theme.json'));
 
 ## Getting started
 
-There's a quick start repository that allows you to get started quickly, just clone and run!
+There's a [quick start repository](https://github.com/Tyriar/vscode-theme-generator-quick-start) that allows you to get started quickly, just clone and run!
 
 ```bash
 git clone https://github.com/Tyriar/vscode-theme-generator-quick-start
