@@ -1,6 +1,6 @@
 # vscode-theme-generator
 
-⚠️ This is a preview that leverages the [upcoming VS Code theming options](https://github.com/Microsoft/vscode/issues/3112), you will need to regenerate your theme when 1.12 is released and the API finalized
+⚠️ This is a preview that leverages the [upcoming VS Code theming options](https://github.com/Microsoft/vscode/issues/3112), you will need to regenerate your theme when VS Code 1.12 is released and the API finalized.
 
 **The Problem**
 
@@ -46,6 +46,17 @@ Support below means that the standard VS Code grammar has explicit support for t
 - :white_check_mark: JavaScript
 - :white_check_mark: Markdown
 - :white_check_mark: TypeScript
+
+## Roadmap
+
+Below are several of the bigger planned items, community feedback is welcome :smiley:
+
+- Support light themes [#22](https://github.com/Tyriar/vscode-theme-generator/issues/22)
+- Allow styling of text style [#16](https://github.com/Tyriar/vscode-theme-generator/issues/16)
+- Finalize and commit to API [#28](https://github.com/Tyriar/vscode-theme-generator/issues/28)
+- Implement syntax color fallbacks [#27](https://github.com/Tyriar/vscode-theme-generator/issues/27)
+- Refine background fallback values [#29](https://github.com/Tyriar/vscode-theme-generator/issues/29)
+- Add API documentation [#30](https://github.com/Tyriar/vscode-theme-generator/issues/30)
 
 ## Development
 
