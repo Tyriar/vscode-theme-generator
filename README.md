@@ -36,6 +36,18 @@ generateTheme('My Theme', colorSet, path.join(__dirname, 'theme.json'));
 
 ![](./images/example.png)
 
+## Getting started
+
+There's a quick start repository that allows you to get started quickly, just clone and run!
+
+```bash
+git clone https://github.com/Tyriar/vscode-theme-generator-quick-start
+cd vscode-theme-generator-quick-start
+npm install
+```
+
+Make your changes to the colors in index.ts and hit F5 to build the theme and launch the a new VS Code window with your theme available in the command palette (`ctrl`/`cmd+shift+p` > "Color Theme").
+
 ## Support
 
 Support below means that the standard VS Code grammar has explicit support for the languages, ie. the colors should match their meanings. Other languages will probably still look alright but there is no guarentee that they will.
