@@ -27,7 +27,7 @@ const colorSet: IColorSet = {
     color1: '#399EF4',
     color2: '#DA6771',
     color3: '#4EB071',
-    color4: '#fff099',
+    color4: '#FFF099',
   }
 };
 generateTheme('My Theme', colorSet, path.join(__dirname, 'theme.json'));
@@ -37,7 +37,7 @@ generateTheme('My Theme', colorSet, path.join(__dirname, 'theme.json'));
 
 ## Support
 
-Support below means that the standard VS Code grammar has explicit support for the languages; the colors should match their meanings. Other languages will probably still look alright but there is no guarentee that they will.
+Support below means that the standard VS Code grammar has explicit support for the languages, ie. the colors should match their meanings. Other languages will probably still look alright but there is no guarentee that they will.
 
 - :white_check_mark: CSS
 - :white_check_mark: JavaScript
