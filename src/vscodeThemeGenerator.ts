@@ -63,6 +63,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['panel.background'] = lighten(colorSet.base.background, 0.2);
     theme.colors['activityBar.background'] = lighten(colorSet.base.background, 0.4);
     theme.colors['activityBar.badge.background'] = colorSet.base.color1;
+    theme.colors['sideBarSectionHeader.background'] = theme.colors['activityBar.background'];
     theme.colors['input.background'] = lighten(colorSet.base.background, 0.6);
     theme.colors['dropdown.background'] = lighten(colorSet.base.background, 0.6);
     theme.colors['statusBar.background'] = darken(colorSet.base.background, 0.2);
@@ -74,12 +75,26 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['peekViewTitle.background'] = colorSet.base.background;
     theme.colors['peekView.border'] = colorSet.base.color1;
     theme.colors['peekViewResult.background'] = lighten(colorSet.base.background, 0.2);
-    // Find widget
-    // theme.colors['editorFindWidgetBackground'] = lighten(colorSet.base.background, 0.2);
-    // theme.colors['editorFindInputBackground'] = lighten(colorSet.base.background, 0.4);
-    // theme.colors['editorFindCheckedBorders'] = colorSet.base.color1;
     // Editor marker
     theme.colors['editorMarkerNavigation.background'] = lighten(colorSet.base.background, 0.2);
+
+    // Transparent white to leverage underlying background color
+    theme.colors['list.activeSelectionBackground'] = colorSet.base.color1 + '80';
+    theme.colors['list.dropBackground'] = colorSet.base.color1 + '80';
+    theme.colors['list.focusBackground'] = colorSet.base.color1 + '80';
+    theme.colors['list.hoverBackground'] = '#FFFFFF1A';
+    theme.colors['list.inactiveSelectionBackground'] = '#FFFFFF33';
+
+    theme.colors['editor.lineHighlightBorder'] = '#FFFFFF1A';
+    theme.colors['editor.rangeHighlightBackground'] = '#FFFFFF1A';
+    // TODO: Support editorLineHighlig
+    theme.colors['editorGroup.dropBackground'] = colorSet.base.color1 + '80';
+    theme.colors['activityBar.dropBackground'] = colorSet.base.color1 + '80';
+    theme.colors['panelTitle.activeBorder'] = colorSet.base.color1;
+
+    theme.colors['statusBarItem.hoverBackground'] = '#FFFFFF1A';
+    theme.colors['statusBarItem.activeBackground'] = colorSet.base.color1 + '80';
+    theme.colors['pickerGroup.border'] = '#FFFFFF1A';
 
     return JSON.stringify(theme);
   }
