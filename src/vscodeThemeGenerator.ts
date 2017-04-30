@@ -54,29 +54,30 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.tokenColors.push(globalSettings);
 
     // TODO: Expose details options on IColorSet
-    theme.colors['tabsContainerBackground'] = lighten(colorSet.base.background, 0.2);
-    theme.colors['inactiveTabBackground'] = lighten(colorSet.base.background, 0.4);
-    theme.colors['sideBarBackground'] = lighten(colorSet.base.background, 0.2);
-    theme.colors['panelBackground'] = lighten(colorSet.base.background, 0.2);
-    theme.colors['activityBarBackground'] = lighten(colorSet.base.background, 0.4);
-    theme.colors['activityBadgeBackground'] = colorSet.base.color1;
-    theme.colors['inputBoxBackground'] = lighten(colorSet.base.background, 0.6);
-    theme.colors['dropdownBackground'] = lighten(colorSet.base.background, 0.6);
-    theme.colors['statusBarBackground'] = darken(colorSet.base.background, 0.2);
-    theme.colors['statusBarNoFolderBackground'] = darken(colorSet.base.background, 0.2); // Don't make distinction between folder/no folder
-    theme.colors['statusBarDebuggingBackground'] = colorSet.base.color1; // Don't make distinction between folder/no folder
-    theme.colors['focusedElementOutline'] = colorSet.base.color1;
+    theme.colors['editor.background'] = colorSet.base.background;
+    theme.colors['editorGroupHeader.tabsBackground'] = lighten(colorSet.base.background, 0.2);
+    theme.colors['tab.inactiveBackground'] = lighten(colorSet.base.background, 0.4);
+    theme.colors['sideBar.background'] = lighten(colorSet.base.background, 0.2);
+    theme.colors['panel.background'] = lighten(colorSet.base.background, 0.2);
+    theme.colors['activityBar.background'] = lighten(colorSet.base.background, 0.4);
+    theme.colors['activityBar.badge.background'] = colorSet.base.color1;
+    theme.colors['input.background'] = lighten(colorSet.base.background, 0.6);
+    theme.colors['dropdown.background'] = lighten(colorSet.base.background, 0.6);
+    theme.colors['statusBar.background'] = darken(colorSet.base.background, 0.2);
+    theme.colors['statusBar.noFolderBackground'] = darken(colorSet.base.background, 0.2); // Don't make distinction between folder/no folder
+    theme.colors['statusBar.debuggingBackground'] = colorSet.base.color1; // Don't make distinction between folder/no folder
+    theme.colors['focusBorder'] = colorSet.base.color1;
     // Peek editor
-    theme.colors['editorPeekEditorBackground'] = darken(colorSet.base.background, 0.2);
-    theme.colors['editorPeekTitleBackground'] = colorSet.base.background;
-    theme.colors['editorPeekBorder'] = colorSet.base.color1;
-    theme.colors['editorPeekResultsBackground'] = lighten(colorSet.base.background, 0.2);
+    theme.colors['peekViewEditor.background'] = darken(colorSet.base.background, 0.2);
+    theme.colors['peekViewTitle.background'] = colorSet.base.background;
+    theme.colors['peekView.border'] = colorSet.base.color1;
+    theme.colors['peekViewResult.background'] = lighten(colorSet.base.background, 0.2);
     // Find widget
-    theme.colors['editorFindWidgetBackground'] = lighten(colorSet.base.background, 0.2);
-    theme.colors['editorFindInputBackground'] = lighten(colorSet.base.background, 0.4);
-    theme.colors['editorFindCheckedBorders'] = colorSet.base.color1;
+    // theme.colors['editorFindWidgetBackground'] = lighten(colorSet.base.background, 0.2);
+    // theme.colors['editorFindInputBackground'] = lighten(colorSet.base.background, 0.4);
+    // theme.colors['editorFindCheckedBorders'] = colorSet.base.color1;
     // Editor marker
-    theme.colors['editorMarkerNavigationBackground'] = lighten(colorSet.base.background, 0.2);
+    theme.colors['editorMarkerNavigation.background'] = lighten(colorSet.base.background, 0.2);
 
     return JSON.stringify(theme);
   }
