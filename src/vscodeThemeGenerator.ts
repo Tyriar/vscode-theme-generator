@@ -56,6 +56,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // TODO: Expose details options on IColorSet
     theme.colors['editor.background'] = colorSet.base.background;
     theme.colors['editorHoverWidget.background'] = lighten(colorSet.base.background, 0.2);
+    theme.colors['editorWidget.background'] = lighten(colorSet.base.background, 0.2);
     theme.colors['editorGroupHeader.tabsBackground'] = lighten(colorSet.base.background, 0.2);
     theme.colors['tab.inactiveBackground'] = lighten(colorSet.base.background, 0.4);
     theme.colors['sideBar.background'] = lighten(colorSet.base.background, 0.2);
