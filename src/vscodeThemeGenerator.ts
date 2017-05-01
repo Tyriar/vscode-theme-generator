@@ -63,6 +63,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['panel.background'] = lighten(colorSet.base.background, 0.2);
     theme.colors['activityBar.background'] = lighten(colorSet.base.background, 0.4);
     theme.colors['activityBar.badge.background'] = colorSet.base.color1;
+    theme.colors['debugToolBar.background'] = lighten(colorSet.base.background, 0.4);
     theme.colors['sideBarSectionHeader.background'] = theme.colors['activityBar.background'];
     theme.colors['input.background'] = lighten(colorSet.base.background, 0.6);
     theme.colors['dropdown.background'] = lighten(colorSet.base.background, 0.6);
@@ -96,6 +97,8 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['statusBarItem.activeBackground'] = colorSet.base.color1 + '80';
     theme.colors['pickerGroup.border'] = '#FFFFFF1A';
     theme.colors['panel.border'] = '#FFFFFF1A';
+    theme.colors['tab.border'] = '#00000033';
+    theme.colors['editorLineNumber.foreground'] = '#FFFFFF4D';
 
     return JSON.stringify(theme);
   }
