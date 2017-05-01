@@ -92,6 +92,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['editorGroup.dropBackground'] = colorSet.base.color1 + '80';
     theme.colors['activityBar.dropBackground'] = colorSet.base.color1 + '80';
     theme.colors['panelTitle.activeBorder'] = colorSet.base.color1;
+    theme.colors['inputOption.activeBorder'] = colorSet.base.color1;
 
     theme.colors['statusBarItem.hoverBackground'] = '#FFFFFF1A';
     theme.colors['statusBarItem.activeBackground'] = colorSet.base.color1 + '80';
