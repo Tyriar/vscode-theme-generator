@@ -86,8 +86,8 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['list.inactiveSelectionBackground'] = '#FFFFFF33';
 
     theme.colors['editor.lineHighlightBorder'] = '#FFFFFF1A';
-    theme.colors['editor.rangeHighlightBackground'] = '#FFFFFF1A';
-    // TODO: Support editorLineHighlig
+    theme.colors['editor.rangeHighlightBackground'] = '#FFFFFF0D';
+    // TODO: Support editorLineHighlight
     theme.colors['editorGroup.dropBackground'] = colorSet.base.color1 + '80';
     theme.colors['activityBar.dropBackground'] = colorSet.base.color1 + '80';
     theme.colors['panelTitle.activeBorder'] = colorSet.base.color1;
@@ -95,6 +95,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['statusBarItem.hoverBackground'] = '#FFFFFF1A';
     theme.colors['statusBarItem.activeBackground'] = colorSet.base.color1 + '80';
     theme.colors['pickerGroup.border'] = '#FFFFFF1A';
+    theme.colors['panel.border'] = '#FFFFFF1A';
 
     return JSON.stringify(theme);
   }
