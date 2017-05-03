@@ -101,6 +101,6 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['tab.border'] = '#00000033';
     theme.colors['editorLineNumber.foreground'] = '#FFFFFF4D';
 
-    return JSON.stringify(theme);
+    return JSON.stringify(theme, null, 2);
   }
 }
