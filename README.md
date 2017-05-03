@@ -1,7 +1,6 @@
 # vscode-theme-generator
 
-⚠️ **This is a preview that leverages the [upcoming VS Code theming options](https://github.com/Microsoft/vscode/issues/3112)** ⚠️<br>
-⚠️ **The VS Code team as asked to [avoid publishing themes using the new format until it's finalized](http://code.visualstudio.com/updates/v1_11#_preview-workbench-theming)** ⚠️
+This is a preview that leverages the new VS Code theming options in v1.12.
 
 **The Problem**
 
@@ -78,7 +77,3 @@ npm run dev
 ```
 
 Then in VS Code press <kbd>F5</kbd> to build demo and launch the debugger with the generated themes available to switch to.
-
-## Publishing
-
-The official guidance from the team is to [avoid publishing until the theme format is finalized](http://code.visualstudio.com/updates/v1_11#_preview-workbench-theming). The reason for this is because the format might change so much that the theme breaks.
