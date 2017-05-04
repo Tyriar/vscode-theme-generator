@@ -98,7 +98,8 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // TODO: Support editorLineHighlight
     theme.colors['editorGroup.dropBackground'] = addAlpha(colorSet.base.color1, 0.5);
     theme.colors['activityBar.dropBackground'] = addAlpha(colorSet.base.color1, 0.5);
-    theme.colors['panelTitle.activeBorder'] = colorSet.base.color1;
+    theme.colors['panelTitle.activeBorder'] = addAlpha(colorSet.base.foreground, 0.5);
+    theme.colors['panelTitle.inactiveForeground'] = addAlpha(colorSet.base.foreground, 0.5);
     theme.colors['inputOption.activeBorder'] = colorSet.base.color1;
 
     theme.colors['statusBarItem.hoverBackground'] = addAlpha('#FFFFFF', 0.1);
