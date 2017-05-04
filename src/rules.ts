@@ -67,23 +67,6 @@ export const globalRules: IRuleGenerator[] = [
   { color: s => s.base.foreground, generate: getGlobalSettingGenerator('foreground') }
 ];
 
-export const colorRules: IRuleGenerator[] = [
-  { color: s => s.base.background, generate: getGlobalSettingGenerator('editorBackground') },
-  { color: s => s.base.foreground, generate: getGlobalSettingGenerator('editorForeground') },
-  { color: s => s.ui.cursor, generate: getGlobalSettingGenerator('editorCaret') },
-  { color: s => s.ui.guide, generate: getGlobalSettingGenerator('editorGuide') },
-  { color: s => s.ui.invisibles, generate: getGlobalSettingGenerator('editorInvisibles') },
-  { color: s => s.ui.findMatchHighlight, generate: getGlobalSettingGenerator('editorFindMatchHighlight') },
-  { color: s => s.ui.currentFindMatchHighlight, generate: getGlobalSettingGenerator('editorCurrentFindMatchHighlight') },
-  { color: s => s.ui.findRangeHighlight, generate: getGlobalSettingGenerator('editorFindRangeHighlight') },
-  { color: s => s.ui.rangeHighlight, generate: getGlobalSettingGenerator('editorRangeHighlight') },
-  { color: s => s.ui.selection, generate: getGlobalSettingGenerator('editorSelection') },
-  { color: s => s.ui.selectionHighlight, generate: getGlobalSettingGenerator('editorSelectionHighlight') },
-  { color: s => s.ui.wordHighlight, generate: getGlobalSettingGenerator('editorWordHighlight') },
-  { color: s => s.ui.wordHighlightStrong, generate: getGlobalSettingGenerator('editorWordHighlightStrong') },
-  { color: s => s.ui.activeLinkForeground, generate: getGlobalSettingGenerator('editorActiveLinkForeground') },
-];
-
 export const tokenRules: IRuleGenerator[] = [
   // string: It's important that string is put first so that other scopes can override strings
   // within template expressions

@@ -150,26 +150,38 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // editor.background: Editor background color.
     theme.colors['editor.background'] = background2;
     // editor.foreground: Editor default foreground color.
+    theme.colors['editor.foreground'] = colorSet.base.foreground;
     // editorLineNumber.foreground: Color of editor line numbers.
     theme.colors['editorLineNumber.foreground'] = addAlpha('#FFFFFF', 0.3);
     // editorCursor.foreground: Color of the editor cursor.
+    if (colorSet.ui.cursor) theme.colors['editorCursor.foreground'] = colorSet.ui.cursor;
     // editor.selectionBackground: Color of the editor selection.
+    if (colorSet.ui.selection) theme.colors['editor.selectionBackground'] = colorSet.ui.selection;
     // editor.selectionHighlightBackground: Color for regions with the same content as the selection.
+    if (colorSet.ui.selectionHighlight) theme.colors['editor.selectionHighlightBackground'] = colorSet.ui.selectionHighlight;
     // editor.inactiveSelectionBackground: Color of the selection in an inactive editor.
     // editor.wordHighlightBackground: Background color of a symbol during read-access, like reading a variable.
+    if (colorSet.ui.wordHighlight) theme.colors['editor.wordHighlightBackground'] = colorSet.ui.wordHighlight;
     // editor.wordHighlightStrongBackground: Background color of a symbol during write-access, like writing to a variable.
+    if (colorSet.ui.wordHighlightStrong) theme.colors['editor.wordHighlightStrongBackground'] = colorSet.ui.wordHighlightStrong;
     // editor.findMatchBackground: Color of the current search match.
+    if (colorSet.ui.currentFindMatchHighlight) theme.colors['editor.findMatchBackground'] = colorSet.ui.currentFindMatchHighlight;
     // editor.findMatchHighlightBackground: Color of the other search matches.
+    if (colorSet.ui.findMatchHighlight) theme.colors['editor.findMatchHighlight'] = colorSet.ui.findMatchHighlight;
     // editor.findRangeHighlightBackground: Color the range limiting the search.
+    if (colorSet.ui.findRangeHighlight) theme.colors['editor.findRangeHighlightBackground'] = colorSet.ui.findRangeHighlight;
     // editor.hoverHighlightBackground: Highlight below the word for which a hover is shown.
     // editor.lineHighlightBackground: Background color for the highlight of line at the cursor position.
     // editor.lineHighlightBorder: Background color for the border around the line at the cursor position.
-    theme.colors['editor.lineHighlightBorder'] = addAlpha('#FFFFFF', 0.1);
+    theme.colors['editor.lineHighlightBorder'] = colorSet.ui.rangeHighlight ? colorSet.ui.rangeHighlight : addAlpha('#FFFFFF', 0.1);
     // editorLink.activeForeground: Color of active links.
+    if (colorSet.ui.activeLinkForeground) theme.colors['editorLink.activeForeground'] = colorSet.ui.activeLinkForeground;
     // editor.rangeHighlightBackground: Background color of highlighted ranges, like by quick open and find features.
     theme.colors['editor.rangeHighlightBackground'] = addAlpha('#FFFFFF', 0.05);
     // editorWhitespace.foreground: Color of whitespace characters in the editor.
+    if (colorSet.ui.invisibles) theme.colors['editorWhitespace.foreground'] = colorSet.ui.invisibles;
     // editorIndentGuide.background: Color of the editor indentation guides.
+    if (colorSet.ui.guide) theme.colors['editorIndentGuide.background'] = colorSet.ui.guide;
 
     // Diff Editor Colors
     // diffEditor.insertedTextBackground: Background color for text that got inserted.
