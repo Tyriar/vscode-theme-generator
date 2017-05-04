@@ -73,6 +73,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['sideBarSectionHeader.background'] = theme.colors['activityBar.background'];
     theme.colors['input.background'] = background5;
     theme.colors['dropdown.background'] = background5;
+    theme.colors['titleBar.activeBackground'] = background1;
     theme.colors['statusBar.background'] = background1;
     theme.colors['statusBar.noFolderBackground'] = background1; // Don't make distinction between folder/no folder
     theme.colors['statusBar.debuggingBackground'] = colorSet.base.color1;
