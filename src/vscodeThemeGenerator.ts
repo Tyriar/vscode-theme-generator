@@ -80,7 +80,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['focusBorder'] = colorSet.base.color1;
     // Peek editor
     theme.colors['peekViewEditor.background'] = background1;
-    theme.colors['peekViewTitle.background'] = colorSet.base.background;
+    theme.colors['peekViewTitle.background'] = background2;
     theme.colors['peekView.border'] = colorSet.base.color1;
     theme.colors['peekViewResult.background'] = background3;
     // Editor marker
