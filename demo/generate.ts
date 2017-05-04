@@ -80,7 +80,7 @@ const sapphireColorSet: IColorSet = {
 
 const minimalColorSet: IColorSet = {
   base: {
-    background: '#12171f',
+    background: '#22272f',
     foreground: '#efefef',
     color1: sapphireColors.blue,
     color2: sapphireColors.red,
