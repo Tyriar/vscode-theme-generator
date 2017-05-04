@@ -17,6 +17,11 @@
         "label": "Generated Theme (Minimal)",
         "uiTheme": "vs-dark",
         "path": "./theme-minimal.json"
+      },
+      {
+        "label": "Generated Theme (Minimal, coverage)",
+        "uiTheme": "vs-dark",
+        "path": "./theme-minimal-coverage.json"
       }
     ]
   }

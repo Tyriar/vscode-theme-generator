@@ -89,5 +89,17 @@ const minimalColorSet: IColorSet = {
   },
 };
 
+const minimalCoverageColorSet: IColorSet = {
+  base: {
+    background: '#FF0000',
+    foreground: '#0000FF',
+    color1: '#00FF00',
+    color2: '#00FF00',
+    color3: '#00FF00',
+    color4: '#00FF00',
+  },
+};
+
 generateTheme('Generated Theme', sapphireColorSet, path.join(__dirname, 'theme.json'));
 generateTheme('Generated Theme (minimal)', minimalColorSet, path.join(__dirname, 'theme-minimal.json'));
+generateTheme('Generated Theme (minimal, coverage)', minimalCoverageColorSet, path.join(__dirname, 'theme-minimal-coverage.json'));
