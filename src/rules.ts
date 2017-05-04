@@ -67,25 +67,6 @@ export const globalRules: IRuleGenerator[] = [
   { color: s => s.base.foreground, generate: getGlobalSettingGenerator('foreground') }
 ];
 
-export const terminalRules: IRuleGenerator[] = [
-  { color: s => s.terminal.black, generate: getGlobalSettingGenerator('terminalAnsiBlack') },
-  { color: s => s.terminal.red, generate: getGlobalSettingGenerator('terminalAnsiRed') },
-  { color: s => s.terminal.green, generate: getGlobalSettingGenerator('terminalAnsiGreen') },
-  { color: s => s.terminal.yellow, generate: getGlobalSettingGenerator('terminalAnsiYellow') },
-  { color: s => s.terminal.blue, generate: getGlobalSettingGenerator('terminalAnsiBlue') },
-  { color: s => s.terminal.magenta, generate: getGlobalSettingGenerator('terminalAnsiMagenta') },
-  { color: s => s.terminal.cyan, generate: getGlobalSettingGenerator('terminalAnsiCyan') },
-  { color: s => s.terminal.white, generate: getGlobalSettingGenerator('terminalAnsiWhite') },
-  { color: s => s.terminal.brightBlack, generate: getGlobalSettingGenerator('terminalAnsiBrightBlack') },
-  { color: s => s.terminal.brightRed, generate: getGlobalSettingGenerator('terminalAnsiBrightRed') },
-  { color: s => s.terminal.brightGreen, generate: getGlobalSettingGenerator('terminalAnsiBrightGreen') },
-  { color: s => s.terminal.brightYellow, generate: getGlobalSettingGenerator('terminalAnsiBrightYellow') },
-  { color: s => s.terminal.brightBlue, generate: getGlobalSettingGenerator('terminalAnsiBrightBlue') },
-  { color: s => s.terminal.brightMagenta, generate: getGlobalSettingGenerator('terminalAnsiBrightMagenta') },
-  { color: s => s.terminal.brightCyan, generate: getGlobalSettingGenerator('terminalAnsiBrightCyan') },
-  { color: s => s.terminal.brightWhite, generate: getGlobalSettingGenerator('terminalAnsiBrightWhite') }
-];
-
 export const colorRules: IRuleGenerator[] = [
   { color: s => s.base.background, generate: getGlobalSettingGenerator('editorBackground') },
   { color: s => s.base.foreground, generate: getGlobalSettingGenerator('editorForeground') },

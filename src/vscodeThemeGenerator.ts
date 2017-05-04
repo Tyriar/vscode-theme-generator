@@ -1,6 +1,6 @@
 import { IColorSet, IThemeGenerator, IBaseColorSet } from './interfaces'
 import { darken, lighten, generateFallbackColorSet, addAlpha } from './color';
-import { tokenRules, terminalRules, colorRules, globalRules, IVscodeJsonThemeSetting } from './rules';
+import { tokenRules, colorRules, globalRules, IVscodeJsonThemeSetting } from './rules';
 
 export interface IVscodeJsonTheme {
   name?: string;
@@ -33,14 +33,6 @@ export class VscodeThemeGenerator implements IThemeGenerator {
       const color = generator.color(colorSet) || generator.color(fallbackColorSet);
       if (color) {
         theme.tokenColors.push(generator.generate(color));
-      }
-    });
-
-    colorRules.concat(terminalRules).forEach(generator => {
-      const color = generator.color(colorSet) || generator.color(fallbackColorSet);
-      if (color) {
-        const generated = generator.generate(color);
-        theme.colors[Object.keys(generated)[0]] = color;
       }
     });
 
@@ -265,21 +257,37 @@ export class VscodeThemeGenerator implements IThemeGenerator {
 
     // Terminal Colors
     // terminal.ansiBlack: 'Black' ansi color in the terminal.
+    if (colorSet.terminal.black) theme.colors['terminal.ansiBlack'] = colorSet.terminal.black;
     // terminal.ansiBlue: 'Blue' ansi color in the terminal.
+    if (colorSet.terminal.blue) theme.colors['terminal.ansiBlue'] = colorSet.terminal.blue;
     // terminal.ansiBrightBlack: 'BrightBlack' ansi color in the terminal.
+    if (colorSet.terminal.brightBlack) theme.colors['terminal.ansiBrightBlack'] = colorSet.terminal.brightBlack;
     // terminal.ansiBrightBlue: 'BrightBlue' ansi color in the terminal.
+    if (colorSet.terminal.brightBlue) theme.colors['terminal.ansiBrightBlue'] = colorSet.terminal.brightBlue;
     // terminal.ansiBrightCyan: 'BrightCyan' ansi color in the terminal.
+    if (colorSet.terminal.brightCyan) theme.colors['terminal.ansiBrightCyan'] = colorSet.terminal.brightCyan;
     // terminal.ansiBrightGreen: 'BrightGreen' ansi color in the terminal.
+    if (colorSet.terminal.brightGreen) theme.colors['terminal.ansiBrightGreen'] = colorSet.terminal.brightGreen;
     // terminal.ansiBrightMagenta: 'BrightMagenta' ansi color in the terminal.
+    if (colorSet.terminal.brightMagenta) theme.colors['terminal.ansiBrightMagenta'] = colorSet.terminal.brightMagenta;
     // terminal.ansiBrightRed: 'BrightRed' ansi color in the terminal.
+    if (colorSet.terminal.brightRed) theme.colors['terminal.ansiBrightRed'] = colorSet.terminal.brightRed;
     // terminal.ansiBrightWhite: 'BrightWhite' ansi color in the terminal.
+    if (colorSet.terminal.brightWhite) theme.colors['terminal.ansiBrightWhite'] = colorSet.terminal.brightWhite;
     // terminal.ansiBrightYellow: 'BrightYellow' ansi color in the terminal.
+    if (colorSet.terminal.brightYellow) theme.colors['terminal.ansiBrightYellow'] = colorSet.terminal.brightYellow;
     // terminal.ansiCyan: 'Cyan' ansi color in the terminal.
+    if (colorSet.terminal.cyan) theme.colors['terminal.ansiCyan'] = colorSet.terminal.cyan;
     // terminal.ansiGreen: 'Green' ansi color in the terminal.
+    if (colorSet.terminal.green) theme.colors['terminal.ansiGreen'] = colorSet.terminal.green;
     // terminal.ansiMagenta: 'Magenta' ansi color in the terminal.
+    if (colorSet.terminal.magenta) theme.colors['terminal.ansiMagenta'] = colorSet.terminal.magenta;
     // terminal.ansiRed: 'Red' ansi color in the terminal.
+    if (colorSet.terminal.red) theme.colors['terminal.ansiRed'] = colorSet.terminal.red;
     // terminal.ansiWhite: 'White' ansi color in the terminal.
+    if (colorSet.terminal.white) theme.colors['terminal.ansiWhite'] = colorSet.terminal.white;
     // terminal.ansiYellow: 'Yellow' ansi color in the terminal.
+    if (colorSet.terminal.yellow) theme.colors['terminal.ansiYellow'] = colorSet.terminal.yellow;
 
     // Debug
     // debugToolBar.background: Debug toolbar background color.
