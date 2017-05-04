@@ -27,6 +27,17 @@ export function darken(color: string, amount: number): string {
   return lighten(color, -amount);
 }
 
+export function addAlpha(color: string, alpha: number): string {
+  if (color.length !== 7) {
+    throw new Error('addAlpha only supports adding to #rrggbb format colors');
+  }
+  let alphaHex = Math.round(alpha * 255).toString(16);
+  if (alphaHex.length === 1) {
+    alphaHex = '0' + alphaHex;
+  }
+  return color + alphaHex;
+}
+
 export function generateFallbackColorSet(s: IBaseColorSet): IColorSet {
   return {
     base: {

@@ -1,5 +1,5 @@
 import { IColorSet, IThemeGenerator, IBaseColorSet } from './interfaces'
-import { darken, lighten, generateFallbackColorSet } from './color';
+import { darken, lighten, generateFallbackColorSet, addAlpha } from './color';
 import { tokenRules, terminalRules, colorRules, globalRules, IVscodeJsonThemeSetting } from './rules';
 
 export interface IVscodeJsonTheme {
@@ -70,7 +70,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['activityBar.background'] = background4;
     theme.colors['activityBar.badge.background'] = colorSet.base.color1;
     theme.colors['debugToolBar.background'] = background4;
-    theme.colors['sideBarSectionHeader.background'] = theme.colors['activityBar.background'];
+    theme.colors['sideBarSectionHeader.background'] = background4;
     theme.colors['input.background'] = background5;
     theme.colors['dropdown.background'] = background5;
     theme.colors['titleBar.activeBackground'] = background1;
@@ -87,26 +87,26 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['editorMarkerNavigation.background'] = background3;
 
     // Transparent white to leverage underlying background color
-    theme.colors['list.activeSelectionBackground'] = colorSet.base.color1 + '80';
-    theme.colors['list.dropBackground'] = colorSet.base.color1 + '80';
-    theme.colors['list.focusBackground'] = colorSet.base.color1 + '80';
-    theme.colors['list.hoverBackground'] = '#FFFFFF1A';
-    theme.colors['list.inactiveSelectionBackground'] = '#FFFFFF33';
+    theme.colors['list.activeSelectionBackground'] = addAlpha(colorSet.base.color1, 0.5);
+    theme.colors['list.dropBackground'] = addAlpha(colorSet.base.color1, 0.5);
+    theme.colors['list.focusBackground'] = addAlpha(colorSet.base.color1, 0.5);
+    theme.colors['list.hoverBackground'] = addAlpha('#FFFFFF', 0.1);
+    theme.colors['list.inactiveSelectionBackground'] = addAlpha('#FFFFFF', 0.2);
 
-    theme.colors['editor.lineHighlightBorder'] = '#FFFFFF1A';
-    theme.colors['editor.rangeHighlightBackground'] = '#FFFFFF0D';
+    theme.colors['editor.lineHighlightBorder'] = addAlpha('#FFFFFF', 0.1);
+    theme.colors['editor.rangeHighlightBackground'] = addAlpha('#FFFFFF', 0.5);
     // TODO: Support editorLineHighlight
-    theme.colors['editorGroup.dropBackground'] = colorSet.base.color1 + '80';
-    theme.colors['activityBar.dropBackground'] = colorSet.base.color1 + '80';
+    theme.colors['editorGroup.dropBackground'] = addAlpha(colorSet.base.color1, 0.5);
+    theme.colors['activityBar.dropBackground'] = addAlpha(colorSet.base.color1, 0.5);
     theme.colors['panelTitle.activeBorder'] = colorSet.base.color1;
     theme.colors['inputOption.activeBorder'] = colorSet.base.color1;
 
-    theme.colors['statusBarItem.hoverBackground'] = '#FFFFFF1A';
-    theme.colors['statusBarItem.activeBackground'] = colorSet.base.color1 + '80';
-    theme.colors['pickerGroup.border'] = '#FFFFFF1A';
-    theme.colors['panel.border'] = '#FFFFFF1A';
-    theme.colors['tab.border'] = '#00000033';
-    theme.colors['editorLineNumber.foreground'] = '#FFFFFF4D';
+    theme.colors['statusBarItem.hoverBackground'] = addAlpha('#FFFFFF', 0.1);
+    theme.colors['statusBarItem.activeBackground'] = addAlpha(colorSet.base.color1, 0.5);
+    theme.colors['pickerGroup.border'] = addAlpha('#FFFFFF', 0.1);
+    theme.colors['panel.border'] = addAlpha('#FFFFFF', 0.1);
+    theme.colors['tab.border'] = addAlpha('#000000', 0.2);
+    theme.colors['editorLineNumber.foreground'] = addAlpha('#FFFFFF', 0.3);
 
     return JSON.stringify(theme, null, 2);
   }
