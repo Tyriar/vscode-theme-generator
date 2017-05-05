@@ -45,7 +45,7 @@ cd vscode-theme-generator-quick-start
 npm install
 ```
 
-Make your changes to the colors in index.ts and hit F5 to build the theme and launch the a new VS Code window with your theme available in the command palette (`ctrl`/`cmd+shift+p` > "Color Theme").
+Make your changes to the colors in index.ts and hit F5 to build the theme and launch a new VS Code window with your theme available in the command palette (`ctrl`/`cmd+shift+p` > "Color Theme").
 
 ## Support
 
