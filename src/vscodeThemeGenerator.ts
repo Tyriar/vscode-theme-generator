@@ -1,6 +1,6 @@
 import { IColorSet, IThemeGenerator, IBaseColorSet } from './interfaces'
 import { darken, lighten, generateFallbackColorSet, addAlpha } from './color';
-import { tokenRules, colorRules, globalRules, IVscodeJsonThemeSetting } from './rules';
+import { tokenRules, globalRules, IVscodeJsonThemeSetting } from './rules';
 
 export interface IVscodeJsonTheme {
   name?: string;
