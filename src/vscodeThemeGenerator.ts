@@ -304,5 +304,8 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // Debug
     // debugToolBar.background: Debug toolbar background color.
     theme.colors['debugToolBar.background'] = background4;
+
+    // v1.13 colors
+    theme.colors['selection.background'] = colorSet.base.color1;
   }
 }
