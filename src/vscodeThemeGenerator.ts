@@ -143,9 +143,10 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // tab.border: Border to separate tabs from each other. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
     theme.colors['tab.border'] = addAlpha('#000000', 0.2);
     // tab.inactiveBackground: Inactive tab background color. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
+    theme.colors['tab.activeBorder'] = colorSet.base.color1;
     theme.colors['tab.inactiveBackground'] = background4;
     // tab.inactiveForeground: Inactive tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
-
+    
     // Editor Colors
     // editor.background: Editor background color.
     theme.colors['editor.background'] = background2;
@@ -153,6 +154,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['editor.foreground'] = colorSet.base.foreground;
     // editorLineNumber.foreground: Color of editor line numbers.
     theme.colors['editorLineNumber.foreground'] = addAlpha('#FFFFFF', 0.3);
+    theme.colors['editorLineNumber.activeForeground'] = colorSet.base.color1;
     // editorCursor.foreground: Color of the editor cursor.
     if (colorSet.ui.cursor) theme.colors['editorCursor.foreground'] = colorSet.ui.cursor;
     // editor.selectionBackground: Color of the editor selection.
