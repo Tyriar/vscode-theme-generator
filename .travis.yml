@@ -3,11 +3,6 @@ os:
   - linux
 node_js:
   - 8
-env:
-  matrix:
-    - NPM_COMMAND=tsc
-    - NPM_COMMAND=lint
-    - NPM_COMMAND=test
 notifications:
   email: false
 script: 
