@@ -1,4 +1,4 @@
-import { IColorSet, IThemeGenerator, IBaseColorSet } from './interfaces'
+import { IColorSet, IThemeGenerator, IBaseColorSet } from './interfaces';
 import { darken, lighten } from './color';
 
 export interface IVscodeJsonThemeSetting {
@@ -18,7 +18,7 @@ export interface IRuleGenerator {
   generate: ColorGenerator;
 }
 
-enum FontStyle {
+const enum FontStyle {
   NONE = 0,
   ITALIC = 1 << 0,
   BOLD = 1 << 1,
@@ -32,7 +32,7 @@ function getGlobalSettingGenerator(name: string): ColorGenerator {
     }
     const result: any = {};
     result[name] = color;
-    return result
+    return result;
   };
 }
 
@@ -59,7 +59,7 @@ function getSimpleColorGenerator(name: string, scope: string, fontStyle: number 
       colorRule.settings.fontStyle = fontStyles.join(' ');
     }
     return colorRule;
-  }
+  };
 }
 
 export const globalRules: IRuleGenerator[] = [

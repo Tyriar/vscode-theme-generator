@@ -1,4 +1,4 @@
-import { IColorSet, IThemeGenerator, IBaseColorSet } from './interfaces'
+import { IColorSet, IThemeGenerator, IBaseColorSet } from './interfaces';
 import { darken, lighten, generateFallbackColorSet, addAlpha } from './color';
 import { tokenRules, globalRules, IVscodeJsonThemeSetting } from './rules';
 
@@ -50,7 +50,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     return JSON.stringify(theme, null, 2);
   }
 
-  private _applyWorkbenchColors(theme: IVscodeJsonTheme,  colorSet: IColorSet) {
+  private _applyWorkbenchColors(theme: IVscodeJsonTheme,  colorSet: IColorSet): void {
     const background1 = darken(colorSet.base.background, 0.2);
     const background2 = colorSet.base.background;
     const background3 = lighten(colorSet.base.background, 0.2);
@@ -146,7 +146,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['tab.activeBorder'] = colorSet.base.color1;
     theme.colors['tab.inactiveBackground'] = background4;
     // tab.inactiveForeground: Inactive tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
-    
+
     // Editor Colors
     // editor.background: Editor background color.
     theme.colors['editor.background'] = background2;

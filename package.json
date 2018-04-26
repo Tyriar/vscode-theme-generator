@@ -8,7 +8,8 @@
     "build": "tsc",
     "prestart": "tsc demo/generate.ts",
     "start": "node demo/generate.js",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "lint": "tslint src/*.ts"
   },
   "author": "Tyriar",
   "license": "MIT",
@@ -22,6 +23,8 @@
   "typings": "dist/index",
   "devDependencies": {
     "@types/node": "^6.0.41",
+    "tslint": "^5.9.1",
+    "tslint-consistent-codestyle": "^1.13.0",
     "typescript": "^2.8.3"
   }
 }

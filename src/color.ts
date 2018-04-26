@@ -1,4 +1,4 @@
-import { IColorSet, IBaseColorSet } from "./interfaces";
+import { IColorSet, IBaseColorSet } from './interfaces';
 
 export function lighten(color: string, amount: number): string {
   const MAX = 255;

@@ -14,7 +14,7 @@ export interface IBaseColorSet  {
 }
 
 export interface IColorSet {
-  base: IBaseColorSet,
+  base: IBaseColorSet;
   syntax?: {
     boolean?: string;
     function?: string;
@@ -33,7 +33,7 @@ export interface IColorSet {
     cssId?: string;
     cssTag?: string;
     markdownQuote?: string;
-  }
+  };
   ui?: {
     /** The color of the editor cursor/caret */
     cursor?: string;
@@ -56,7 +56,7 @@ export interface IColorSet {
     wordHighlight?: string;
     wordHighlightStrong?: string;
     activeLinkForeground?: string;
-  },
+  };
   terminal?: {
     black?: string;
     red?: string;
@@ -74,6 +74,6 @@ export interface IColorSet {
     brightMagenta?: string;
     brightCyan?: string;
     brightWhite?: string;
-  },
-  overrides?: { [key: string]: string }
+  };
+  overrides?: { [key: string]: string };
 }
