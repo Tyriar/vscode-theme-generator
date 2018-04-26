@@ -1,5 +1,7 @@
 # vscode-theme-generator
 
+[![Build Status](https://travis-ci.org/Tyriar/vscode-theme-generator.svg?branch=master)](https://travis-ci.org/Tyriar/vscode-theme-generator)
+
 This is a preview that leverages the new VS Code theming options in v1.12.
 
 **The Problem**
