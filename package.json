@@ -4,9 +4,11 @@
   "description": "Easily generate themes for VS Code with only a few colors",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "tsc -w",
-    "prestart": "tsc demo/generate.ts",
-    "start": "node demo/generate.js"
+    "watch": "tsc -w",
+    "build": "tsc",
+    "prestart": "tsc demo/generate.js",
+    "start": "node demo/generate.js",
+    "prepublish": "npm run build"
   },
   "author": "Tyriar",
   "license": "MIT",
