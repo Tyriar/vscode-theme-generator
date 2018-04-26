@@ -12,16 +12,17 @@ const sapphireColors = {
   pink: '#B168DF',
   teal: '#21C5C7',
   grey: '#4A5160'
-}
+};
 
 const sapphireColorSet: IColorSet = {
+  type: 'dark',
   base: {
     background: '#12171f',
     foreground: '#efefef',
     color1: sapphireColors.blue,
     color2: sapphireColors.red,
     color3: sapphireColors.green,
-    color4: sapphireColors.yellow,
+    color4: sapphireColors.yellow
   },
   syntax: {
     identifier: sapphireColors.blueLight,
@@ -56,7 +57,7 @@ const sapphireColorSet: IColorSet = {
     // White with ~10% opacity
     wordHighlight: '#ffffff18',
     wordHighlightStrong: '#ffffff18',
-    activeLinkForeground: sapphireColors.blue,
+    activeLinkForeground: sapphireColors.blue
   },
   terminal: {
     black: '#666666',
@@ -77,32 +78,47 @@ const sapphireColorSet: IColorSet = {
     brightWhite: '#efefef'
   },
   overrides: {
-    "editorError.foreground": "#ff0000"
+    'editorError.foreground': '#ff0000'
   }
 };
 
-const minimalColorSet: IColorSet = {
+const minimalDarkColorSet: IColorSet = {
+  type: 'dark',
   base: {
     background: '#22272f',
     foreground: '#efefef',
     color1: sapphireColors.blue,
     color2: sapphireColors.red,
     color3: sapphireColors.green,
-    color4: sapphireColors.yellow,
-  },
+    color4: sapphireColors.yellow
+  }
+};
+
+const minimalLightColorSet: IColorSet = {
+  type: 'light',
+  base: {
+    background: '#efefff',
+    foreground: '#000011',
+    color1: sapphireColors.blue,
+    color2: sapphireColors.red,
+    color3: sapphireColors.green,
+    color4: sapphireColors.yellow
+  }
 };
 
 const minimalCoverageColorSet: IColorSet = {
+  type: 'dark',
   base: {
     background: '#FF0000',
     foreground: '#0000FF',
     color1: '#00FF00',
     color2: '#00FF00',
     color3: '#00FF00',
-    color4: '#00FF00',
-  },
+    color4: '#00FF00'
+  }
 };
 
 generateTheme('Generated Theme', sapphireColorSet, path.join(__dirname, 'theme.json'));
-generateTheme('Generated Theme (minimal)', minimalColorSet, path.join(__dirname, 'theme-minimal.json'));
+generateTheme('Generated Theme (minimal, dark)', minimalDarkColorSet, path.join(__dirname, 'theme-minimal-dark.json'));
+generateTheme('Generated Theme (minimal, light)', minimalLightColorSet, path.join(__dirname, 'theme-minimal-light.json'));
 generateTheme('Generated Theme (minimal, coverage)', minimalCoverageColorSet, path.join(__dirname, 'theme-minimal-coverage.json'));

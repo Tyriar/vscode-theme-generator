@@ -16,7 +16,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     if (!colorSet.terminal) colorSet.terminal = {};
     if (!colorSet.ui) colorSet.ui = {};
 
-    const fallbackColorSet = generateFallbackColorSet(colorSet.base);
+    const fallbackColorSet = generateFallbackColorSet(colorSet.base, colorSet.type);
 
     const theme: IVscodeJsonTheme = {
       name: name,
@@ -51,11 +51,11 @@ export class VscodeThemeGenerator implements IThemeGenerator {
   }
 
   private _applyWorkbenchColors(theme: IVscodeJsonTheme,  colorSet: IColorSet): void {
-    const background1 = darken(colorSet.base.background, 0.2);
+    const background1 = (colorSet.type === 'light' ? lighten : darken)(colorSet.base.background, 0.2);
     const background2 = colorSet.base.background;
-    const background3 = lighten(colorSet.base.background, 0.2);
-    const background4 = lighten(colorSet.base.background, 0.4);
-    const background5 = lighten(colorSet.base.background, 0.6);
+    const background3 = (colorSet.type === 'light' ? darken : lighten)(colorSet.base.background, 0.2);
+    const background4 = (colorSet.type === 'light' ? darken : lighten)(colorSet.base.background, 0.4);
+    const background5 = (colorSet.type === 'light' ? darken : lighten)(colorSet.base.background, 0.6);
 
     // Contrast colors
     // contrastActiveBorder: An extra border around active elements to separate them from others for greater contrast.

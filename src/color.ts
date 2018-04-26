@@ -38,8 +38,9 @@ export function addAlpha(color: string, alpha: number): string {
   return color + alphaHex;
 }
 
-export function generateFallbackColorSet(s: IBaseColorSet): IColorSet {
+export function generateFallbackColorSet(s: IBaseColorSet, type: 'light' | 'dark'): IColorSet {
   return {
+    type,
     base: {
       background: null,
       foreground: null,
@@ -52,12 +53,12 @@ export function generateFallbackColorSet(s: IBaseColorSet): IColorSet {
       boolean: s.color1,
       function: s.color3,
       functionCall: s.color4,
-      identifier: lighten(s.color1, 0.5),
+      identifier: (type === 'light' ? darken : lighten)(s.color1, 0.5),
       keyword: s.color1,
       number: s.color4,
       storage: s.color1,
       string: s.color2,
-      comment: lighten(s.background, 2.0),
+      comment: (type === 'light' ? darken : lighten)(s.background, 2.0),
       class: s.color3,
       classMember: s.color3,
       type: s.color3,
@@ -69,8 +70,8 @@ export function generateFallbackColorSet(s: IBaseColorSet): IColorSet {
     },
     ui: {
       cursor: null,
-      invisibles: lighten(s.background, 0.2),
-      guide: lighten(s.background, 0.2),
+      invisibles: (type === 'light' ? darken : lighten)(s.background, 0.2),
+      guide: (type === 'light' ? darken : lighten)(s.background, 0.2),
       lineHighlight: null,
       findMatchHighlight: null,
       currentFindMatchHighlight: null,

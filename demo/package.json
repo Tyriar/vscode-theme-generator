@@ -14,9 +14,14 @@
         "path": "./theme.json"
       },
       {
-        "label": "Generated Theme (Minimal)",
+        "label": "Generated Theme (Minimal, Dark)",
         "uiTheme": "vs-dark",
-        "path": "./theme-minimal.json"
+        "path": "./theme-minimal-dark.json"
+      },
+      {
+        "label": "Generated Theme (Minimal, Light)",
+        "uiTheme": "vs",
+        "path": "./theme-minimal-light.json"
       },
       {
         "label": "Generated Theme (Minimal, coverage)",

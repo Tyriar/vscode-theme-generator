@@ -14,6 +14,7 @@ export interface IBaseColorSet  {
 }
 
 export interface IColorSet {
+  type: 'light' | 'dark';
   base: IBaseColorSet;
   syntax?: {
     boolean?: string;
