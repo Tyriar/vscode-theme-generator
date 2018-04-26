@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "tsc -w",
     "build": "tsc",
-    "prestart": "tsc demo/generate.js",
+    "prestart": "tsc demo/generate.ts",
     "start": "node demo/generate.js",
     "prepublish": "npm run build"
   },

@@ -75,6 +75,9 @@ const sapphireColorSet: IColorSet = {
     brightMagenta: sapphireColors.pink,
     brightCyan: sapphireColors.teal,
     brightWhite: '#efefef'
+  },
+  overrides: {
+    "editorError.foreground": "#ff0000"
   }
 };
 

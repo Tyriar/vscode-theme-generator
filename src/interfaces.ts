@@ -74,5 +74,6 @@ export interface IColorSet {
     brightMagenta?: string;
     brightCyan?: string;
     brightWhite?: string;
-  }
+  },
+  overrides?: { [key: string]: string }
 }
