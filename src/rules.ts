@@ -89,7 +89,10 @@ export const tokenRules: IRuleGenerator[] = [
   { color: s => s.syntax.type,         generate: getSimpleColorGenerator('Type', 'entity.name.type, entity.other.inherited-class') },
   { color: s => s.syntax.comment,      generate: getSimpleColorGenerator('Comment', 'comment', FontStyle.ITALIC) },
   { color: s => s.syntax.class,        generate: getSimpleColorGenerator('Class', 'entity.name.type.class', FontStyle.UNDERLINE) },
-  { color: s => s.syntax.classMember,  generate: getSimpleColorGenerator('Class variable', 'variable.object.property') },
+  // variable.object.property: `class A { meth = 0; }` (ts)
+  // meta.field.declaration entity.name.function: `class A { meth = () => 0; }` (ts)
+  { color: s => s.syntax.classMember,  generate: getSimpleColorGenerator('Class variable', 'variable.object.property, meta.field.declaration entity.name.function') },
+  // meta.definition.method entity.name.function: `class A { meth() {} }` (ts)
   { color: s => s.syntax.classMember,  generate: getSimpleColorGenerator('Class method', 'meta.definition.method entity.name.function') },
   { color: s => s.syntax.function,     generate: getSimpleColorGenerator('Function definition', 'meta.function entity.name.function') },
   // punctuation.definition.template-expression: `${}`
