@@ -128,6 +128,8 @@ export const tokenRules: IRuleGenerator[] = [
   { color: s => s.syntax.identifier,    generate: getSimpleColorGenerator('Markdown italic', 'markup.italic', FontStyle.ITALIC) },
   { color: s => s.syntax.identifier,    generate: getSimpleColorGenerator('Markdown bold', 'markup.bold', FontStyle.BOLD) },
   { color: s => s.syntax.identifier,    generate: getSimpleColorGenerator('Markdown bold italic', 'markup.bold markup.italic, markup.italic markup.bold', FontStyle.BOLD | FontStyle.ITALIC) },
+  { color: s => s.syntax.string,        generate: getSimpleColorGenerator('Markdown code block', 'markup.fenced_code.block.markdown punctuation.definition.markdown') },
+  { color: s => s.syntax.string,        generate: getSimpleColorGenerator('Markdown inline code', 'markup.inline.raw.string.markdown') },
   /**
    * Ini
    */
