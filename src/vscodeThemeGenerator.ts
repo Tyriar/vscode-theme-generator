@@ -12,6 +12,7 @@ export interface IVscodeJsonTheme {
 export class VscodeThemeGenerator implements IThemeGenerator {
   public generateTheme(name: string, colorSet: IColorSet): string {
     // Fill in missing subsets to prevent NPEs
+    if (!colorSet.type) colorSet.type = 'dark';
     if (!colorSet.syntax) colorSet.syntax = {};
     if (!colorSet.terminal) colorSet.terminal = {};
     if (!colorSet.ui) colorSet.ui = {};
