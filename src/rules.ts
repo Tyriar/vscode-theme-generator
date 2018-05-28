@@ -92,7 +92,8 @@ export const tokenRules: IRuleGenerator[] = [
   { color: s => s.syntax.classMember,  generate: getSimpleColorGenerator('Class variable', 'variable.object.property') },
   { color: s => s.syntax.classMember,  generate: getSimpleColorGenerator('Class method', 'meta.definition.method entity.name.function') },
   { color: s => s.syntax.function,     generate: getSimpleColorGenerator('Function definition', 'meta.function entity.name.function') },
-  { color: s => s.syntax.keyword,      generate: getSimpleColorGenerator('Template expression', 'template.expression.begin, template.expression.end') },
+  // punctuation.definition.template-expression: `${}`
+  { color: s => s.syntax.keyword,      generate: getSimpleColorGenerator('Template expression', 'template.expression.begin, template.expression.end, punctuation.definition.template-expression.begin, punctuation.definition.template-expression.end') },
   { color: s => s.syntax.identifier,   generate: getSimpleColorGenerator('YAML key', 'entity.name.tag.yaml') },
   // modifier: This includes things like access modifiers, static, readonly, etc.
   { color: s => s.syntax.modifier,     generate: getSimpleColorGenerator('Modifier', 'modifier') },
