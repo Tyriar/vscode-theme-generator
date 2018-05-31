@@ -136,6 +136,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // editorGroup.border: Color to separate multiple editor groups from each other. Editor groups are the containers of editors.
     // editorGroup.dropBackground: Background color when dragging editors around.
     theme.colors['editorGroup.dropBackground'] = addAlpha(colorSet.base.color1, 0.5);
+    theme.colors['editorGroup.focusedEmptyBorder'] = colorSet.base.color1;
     // editorGroupHeader.noTabsBackground: Background color of the editor group title header when tabs are disabled. Editor groups are the containers of editors.
     // editorGroupHeader.tabsBackground: Background color of the tabs container. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
     theme.colors['editorGroupHeader.tabsBackground'] = background3;
