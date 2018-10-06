@@ -25,6 +25,7 @@ export interface IColorSet {
     number?: string;
     storage?: string;
     string?: string;
+    stringEscape?: string;
     comment?: string;
     class?: string;
     classMember?: string;

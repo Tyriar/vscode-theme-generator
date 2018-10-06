@@ -71,6 +71,7 @@ export const tokenRules: IRuleGenerator[] = [
   // string: It's important that string is put first so that other scopes can override strings
   // within template expressions
   { color: s => s.syntax.string,       generate: getSimpleColorGenerator('String', 'string') },
+  { color: s => s.syntax.stringEscape, generate: getSimpleColorGenerator('String Escape', 'constant.character.escape, text.html constant.character.entity.named, punctuation.definition.entity.html') },
   { color: s => s.syntax.boolean,      generate: getSimpleColorGenerator('Boolean', 'constant.language.boolean') },
   { color: s => s.syntax.number,       generate: getSimpleColorGenerator('Number', 'constant.numeric') },
   { color: s => s.syntax.identifier,   generate: getSimpleColorGenerator('Identifier', 'variable, support.variable, support.class, support.constant, meta.definition.variable entity.name.function') },
