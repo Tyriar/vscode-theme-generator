@@ -105,9 +105,9 @@ The `ui` properties allow you to set colors for various highlights and a few oth
 
 - `cursor`: the cursor color
 - `invisibles`: used for visible whitespace (see the `editor.renderWhitespace` VS Code setting)
-- `guide`: indentation guidlines in the editor pane
+- `guide`: indentation guidelines in the editor pane
 - `lineHighlight`: colors the line your cursor is on, in place of the boundary lines
-- `findMatchHighlight` and `currentFindMatchHighlight`: higlights matches from the find widget
+- `findMatchHighlight` and `currentFindMatchHighlight`: highlights matches from the find widget
 - `findRangeHighlight`: highlights the selected area for "find in selection"
 - `rangeHighlight`: background for a selected range of lines
 - `selection`: highlights text selected with the cursor
@@ -122,7 +122,7 @@ The `terminal` properties include each of the standard 16 ANSI colors (`black`, 
 
 ## Support
 
-Support below means that the standard VS Code grammar has explicit support for the languages, ie. the colors should match their meanings. Other languages will probably still look alright but there is no guarentee that they will.
+Support below means that the standard VS Code grammar has explicit support for the languages, ie. the colors should match their meanings. Other languages will probably still look alright but there is no guarantee that they will.
 
 - :white_check_mark: C#
 - :white_check_mark: CSS
