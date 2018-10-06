@@ -56,6 +56,8 @@ In addition to the `base` colors, `IColorSet` provides more options for `syntax`
 Since the theme is defined in TypeScript, you can create an object to give names to colors you want to re-use.
 
 ```ts
+import { generateTheme, IColorSet } from 'vscode-theme-generator';
+
 const colors = {
   red: '#DA6771',
   green: '#4EB071',
@@ -90,6 +92,8 @@ const colorSet: IColorSet = {
     'editorGutter.deletedBackground': colors.red
   }
 };
+
+generateTheme('My Theme', colorSet, path.join(__dirname, 'theme.json'));
 ```
 
 The `syntax` properties present a simplified set of token types. If not set, these will be derived from the base colors:
