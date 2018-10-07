@@ -1,0 +1,1 @@
+String stringEscapes = "a\nb";
