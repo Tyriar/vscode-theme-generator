@@ -58,6 +58,7 @@ export function generateFallbackColorSet(s: IBaseColorSet, type: 'light' | 'dark
       number: s.color4,
       storage: s.color1,
       string: s.color2,
+      stringEscape: (type === 'light' ? darken : lighten)(s.color2, 0.5),
       comment: (type === 'light' ? darken : lighten)(s.background, 2.0),
       class: s.color3,
       classMember: s.color3,

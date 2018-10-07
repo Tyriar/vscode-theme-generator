@@ -6,6 +6,7 @@ function func(param) {
     }
     var number = 0;
     var templateLiterals = `a ${text} b ${1 + 2} c`;
+    var escapes = 'line 1\nline 2';
     return {
         "text": text,
         "boolean": false,
