@@ -99,7 +99,7 @@ generateTheme('My Theme', colorSet, path.join(__dirname, 'theme.json'));
 The `syntax` properties present a simplified set of token types. If not set, these will be derived from the base colors:
 
 - `color1` determines `boolean`, `identifier`, `keyword`, `storage`, and `cssClass`
-- `color2` determines `string` and `cssId`
+- `color2` determines `string`, `stringEscape`, and `cssId`
 - `color3` determines `function`, `class`, `classMember`, `type`, and `cssTag`
 - `color4` determines `functionCall` and `number`
 
