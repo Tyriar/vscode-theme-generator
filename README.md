@@ -150,7 +150,7 @@ Below are several of the bigger planned items, community feedback is welcome :sm
 ## Development
 
 ```bash
-npm run dev
+npm run watch
 ```
 
 Then in VS Code press <kbd>F5</kbd> to build demo and launch the debugger with the generated themes available to switch to.
