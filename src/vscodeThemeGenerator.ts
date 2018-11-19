@@ -57,6 +57,8 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     const background3 = (colorSet.type === 'light' ? darken : lighten)(colorSet.base.background, 0.2);
     const background4 = (colorSet.type === 'light' ? darken : lighten)(colorSet.base.background, 0.4);
     const background5 = (colorSet.type === 'light' ? darken : lighten)(colorSet.base.background, 0.6);
+    const color1Unfocused = darken(colorSet.base.color1, 0.2);
+    const color1Inactive = darken(colorSet.base.color1, 0.4);
 
     // Contrast colors
     // contrastActiveBorder: An extra border around active elements to separate them from others for greater contrast.
@@ -148,6 +150,14 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['tab.activeBorder'] = colorSet.base.color1;
     theme.colors['tab.inactiveBackground'] = background4;
     // tab.inactiveForeground: Inactive tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
+    // tab.activeModifiedBorder: Border on top of the modified (dirty) active tabs in an active group.
+    theme.colors['tab.activeModifiedBorder'] = colorSet.base.color1;
+    // tab.inactiveModifiedBorder: Border on top of modified (dirty) inactive tabs in an active group.
+    theme.colors['tab.inactiveModifiedBorder'] = color1Inactive;
+    // tab.unfocusedActiveModifiedBorder: Border on the top of modified (dirty) active tabs in an unfocused group.
+    theme.colors['tab.unfocusedActiveModifiedBorder'] = color1Unfocused;
+    // tab.unfocusedInactiveModifiedBorder: Border on the top of modified (dirty) inactive tabs in an unfocused group.
+    theme.colors['tab.unfocusedInactiveModifiedBorder'] = color1Inactive;
 
     // Editor Colors
     // editor.background: Editor background color.
