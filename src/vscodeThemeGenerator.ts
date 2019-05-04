@@ -106,12 +106,12 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // list.activeSelectionBackground: List/Tree background color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
     theme.colors['list.activeSelectionBackground'] = addAlpha(colorSet.base.color1, 0.5);
     // list.activeSelectionForeground: List/Tree foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
-    theme.colors['list.activeSelectionForeground'] = contrast(addAlpha(colorSet.base.color1, 0.5));
+    theme.colors['list.activeSelectionForeground'] = contrast(theme.colors['list.activeSelectionBackground']);
     // list.dropBackground: List/Tree drag and drop background when moving items around using the mouse.
     theme.colors['list.dropBackground'] = addAlpha(colorSet.base.color1, 0.5);
     // list.focusBackground: List/Tree background color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
     theme.colors['list.focusBackground'] = addAlpha(colorSet.base.color1, 0.5);
-    theme.colors['list.focusForeground'] = contrast(addAlpha(colorSet.base.color1, 0.5));
+    theme.colors['list.focusForeground'] = contrast(theme.colors['list.focusBackground']);
     // list.highlightForeground: List/Tree foreground color of the match highlights when searching inside the list/tree.
     // list.hoverBackground: List/Tree background when hovering over items using the mouse.
     theme.colors['list.hoverBackground'] = addAlpha('#FFFFFF', 0.1);
@@ -127,11 +127,11 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // activityBarBadge.background: Activity notification badge background color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
     theme.colors['activityBarBadge.background'] = colorSet.base.color1;
     // activityBarBadge.foreground: Activity notification badge foreground color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
-    theme.colors['activityBarBadge.foreground'] = contrast(colorSet.base.color1);
+    theme.colors['activityBarBadge.foreground'] = contrast(theme.colors['activityBarBadge.background']);
 
     // Badge
     theme.colors['badge.background'] = colorSet.base.color1;
-    theme.colors['badge.foreground'] = contrast('#e0ed36');
+    theme.colors['badge.foreground'] = contrast(theme.colors['badge.background']);
 
     // Side Bar
     // sideBar.background: Side bar background color. The side bar is the container for views like explorer and search.
@@ -262,7 +262,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['statusBar.background'] = background1;
     // statusBar.debuggingBackground: Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window
     theme.colors['statusBar.debuggingBackground'] = colorSet.base.color1;
-    theme.colors['statusBar.debuggingForeground'] = contrast(colorSet.base.color1);
+    theme.colors['statusBar.debuggingForeground'] = contrast(theme.colors['statusBar.debuggingBackground']);
     // statusBar.foreground: Status bar foreground color. The status bar is shown in the bottom of the window.
     // statusBar.noFolderBackground: Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.
     theme.colors['statusBar.noFolderBackground'] = background1; // Don't make distinction between folder/no folder
@@ -273,7 +273,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // statusBarItem.prominentBackground: Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.
     // statusBarItem.prominentHoverBackground: Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.
     theme.colors['statusBarItem.remoteBackground'] = colorSet.base.color1;
-    theme.colors['statusBarItem.remoteForeground'] = contrast(colorSet.base.color1);
+    theme.colors['statusBarItem.remoteForeground'] = contrast(theme.colors['statusBarItem.remoteBackground']);
 
     // Title Bar Colors (macOS)
     // titleBar.activeBackground: Title bar background when the window is active. Note that this color is currently only supported on macOS.
