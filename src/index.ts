@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import * as path from 'path';
 import { IColorSet } from './interfaces';
 import { VscodeThemeGenerator } from './vscodeThemeGenerator';
 

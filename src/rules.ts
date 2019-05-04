@@ -1,5 +1,4 @@
-import { IColorSet, IThemeGenerator, IBaseColorSet } from './interfaces';
-import { darken, lighten } from './color';
+import { IColorSet } from './interfaces';
 
 export interface IVscodeJsonThemeSetting {
   name: string;
