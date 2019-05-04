@@ -10,9 +10,9 @@ function getRgb(color: string): [number, number, number] {
 
 function toCssString(rgb: [number, number, number]): string {
   let result = '#';
-  result += (rgb[0] < 10 ? '0' : '') + rgb[0];
-  result += (rgb[1] < 10 ? '0' : '') + rgb[1];
-  result += (rgb[2] < 10 ? '0' : '') + rgb[2];
+  result += (rgb[0] < 17 ? '0' : '') + rgb[0].toString(16);
+  result += (rgb[1] < 17 ? '0' : '') + rgb[1].toString(16);
+  result += (rgb[2] < 17 ? '0' : '') + rgb[2].toString(16);
   return result;
 }
 
