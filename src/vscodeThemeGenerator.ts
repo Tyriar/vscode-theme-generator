@@ -1,5 +1,5 @@
 import { IColorSet, IThemeGenerator, IBaseColorSet } from './interfaces';
-import { darken, lighten, generateFallbackColorSet, addAlpha } from './color';
+import { darken, lighten, generateFallbackColorSet, addAlpha, contast as contrast } from './color';
 import { tokenRules, globalRules, IVscodeJsonThemeSetting } from './rules';
 
 export interface IVscodeJsonTheme {
@@ -106,10 +106,12 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // list.activeSelectionBackground: List/Tree background color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
     theme.colors['list.activeSelectionBackground'] = addAlpha(colorSet.base.color1, 0.5);
     // list.activeSelectionForeground: List/Tree foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+    theme.colors['list.activeSelectionForeground'] = contrast(addAlpha(colorSet.base.color1, 0.5));
     // list.dropBackground: List/Tree drag and drop background when moving items around using the mouse.
     theme.colors['list.dropBackground'] = addAlpha(colorSet.base.color1, 0.5);
     // list.focusBackground: List/Tree background color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
     theme.colors['list.focusBackground'] = addAlpha(colorSet.base.color1, 0.5);
+    theme.colors['list.focusForeground'] = contrast(addAlpha(colorSet.base.color1, 0.5));
     // list.highlightForeground: List/Tree foreground color of the match highlights when searching inside the list/tree.
     // list.hoverBackground: List/Tree background when hovering over items using the mouse.
     theme.colors['list.hoverBackground'] = addAlpha('#FFFFFF', 0.1);
@@ -125,6 +127,11 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // activityBarBadge.background: Activity notification badge background color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
     theme.colors['activityBarBadge.background'] = colorSet.base.color1;
     // activityBarBadge.foreground: Activity notification badge foreground color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
+    theme.colors['activityBarBadge.foreground'] = contrast(colorSet.base.color1);
+
+    // Badge
+    theme.colors['badge.background'] = colorSet.base.color1;
+    theme.colors['badge.foreground'] = contrast('#e0ed36');
 
     // Side Bar
     // sideBar.background: Side bar background color. The side bar is the container for views like explorer and search.
@@ -255,6 +262,7 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['statusBar.background'] = background1;
     // statusBar.debuggingBackground: Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window
     theme.colors['statusBar.debuggingBackground'] = colorSet.base.color1;
+    theme.colors['statusBar.debuggingForeground'] = contrast(colorSet.base.color1);
     // statusBar.foreground: Status bar foreground color. The status bar is shown in the bottom of the window.
     // statusBar.noFolderBackground: Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.
     theme.colors['statusBar.noFolderBackground'] = background1; // Don't make distinction between folder/no folder

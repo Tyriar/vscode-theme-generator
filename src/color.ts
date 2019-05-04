@@ -1,5 +1,21 @@
 import { IColorSet, IBaseColorSet } from './interfaces';
 
+function getRgb(color: string): [number, number, number] {
+  return [
+    parseInt(color.substr(1, 2), 16),
+    parseInt(color.substr(3, 2), 16),
+    parseInt(color.substr(5, 2), 16)
+  ]
+}
+
+function toCssString(rgb: [number, number, number]): string {
+  let result = '#';
+  result += (rgb[0] < 10 ? '0' : '') + rgb[0];
+  result += (rgb[1] < 10 ? '0' : '') + rgb[1];
+  result += (rgb[2] < 10 ? '0' : '') + rgb[2];
+  return result;
+}
+
 export function lighten(color: string, amount: number): string {
   const MAX = 255;
   let r = parseInt(color.substr(1, 2), 16);
@@ -8,19 +24,7 @@ export function lighten(color: string, amount: number): string {
   r = Math.min(Math.floor(r + (r * amount)), MAX);
   g = Math.min(Math.floor(g + (g * amount)), MAX);
   b = Math.min(Math.floor(b + (b * amount)), MAX);
-  let rs = r.toString(16);
-  if (rs.length === 1) {
-    rs = '0' + rs;
-  }
-  let gs = g.toString(16);
-  if (gs.length === 1) {
-    gs = '0' + gs;
-  }
-  let bs = b.toString(16);
-  if (bs.length === 1) {
-    bs = '0' + bs;
-  }
-  return `#${rs}${gs}${bs}`;
+  return toCssString([r, g, b]);
 }
 
 export function darken(color: string, amount: number): string {
@@ -36,6 +40,12 @@ export function addAlpha(color: string, alpha: number): string {
     alphaHex = '0' + alphaHex;
   }
   return color + alphaHex;
+}
+
+export function contast(color: string): string {
+  const rgb = getRgb(color);
+  const luminance = rgb[0] * 0.299 + rgb[1] * 0.587 + rgb[2] * 0.114;
+  return luminance > 192 ? '#000000' : '#ffffff';
 }
 
 export function generateFallbackColorSet(s: IBaseColorSet, type: 'light' | 'dark'): IColorSet {
