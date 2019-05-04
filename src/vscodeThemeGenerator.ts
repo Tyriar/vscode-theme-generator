@@ -272,6 +272,8 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['statusBarItem.hoverBackground'] = addAlpha('#FFFFFF', 0.1);
     // statusBarItem.prominentBackground: Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.
     // statusBarItem.prominentHoverBackground: Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.
+    theme.colors['statusBarItem.remoteBackground'] = colorSet.base.color1;
+    theme.colors['statusBarItem.remoteForeground'] = contrast(colorSet.base.color1);
 
     // Title Bar Colors (macOS)
     // titleBar.activeBackground: Title bar background when the window is active. Note that this color is currently only supported on macOS.
