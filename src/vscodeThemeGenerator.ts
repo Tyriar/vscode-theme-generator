@@ -73,7 +73,9 @@ export class VscodeThemeGenerator implements IThemeGenerator {
 
     // Button Control
     // button.background: Button background color.
+    theme.colors['button.background'] = colorSet.base.color1;
     // button.foreground: Button foreground color.
+    theme.colors['button.foreground'] = contrast(theme.colors['button.background']);
     // button.hoverBackground: Button background color when hovering.
 
     // Dropdown Control
