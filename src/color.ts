@@ -5,7 +5,7 @@ function getRgb(color: string): [number, number, number] {
     parseInt(color.substr(1, 2), 16),
     parseInt(color.substr(3, 2), 16),
     parseInt(color.substr(5, 2), 16)
-  ]
+  ];
 }
 
 function toCssString(rgb: [number, number, number]): string {

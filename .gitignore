@@ -1,7 +1,6 @@
 dist/
 node_modules/
 typings/
-package-lock.json
 
 demo/generate.js
 demo/*.json
