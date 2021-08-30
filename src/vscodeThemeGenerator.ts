@@ -332,6 +332,12 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     // debugToolBar.background: Debug toolbar background color.
     theme.colors['debugToolBar.background'] = background4;
 
+    // Bracket colorization
+		theme.colors['editorBracketHighlight.foreground1'] = lighten(colorSet.base.color1, 0.25);
+		theme.colors['editorBracketHighlight.foreground2'] = lighten(colorSet.base.color2, 0.25);
+		theme.colors['editorBracketHighlight.foreground3'] = lighten(colorSet.base.color3, 0.25);
+		theme.colors['editorBracketHighlight.foreground4'] = lighten(colorSet.base.color4, 0.25);
+
     theme.colors['selection.background'] = colorSet.base.color1;
 
     if (colorSet.overrides) {
