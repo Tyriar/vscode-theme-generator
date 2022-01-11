@@ -111,8 +111,6 @@ export class VscodeThemeGenerator implements IThemeGenerator {
     theme.colors['list.activeSelectionForeground'] = '#FFFFFF';
     // list.dropBackground: List/Tree drag and drop background when moving items around using the mouse.
     theme.colors['list.dropBackground'] = addAlpha(colorSet.base.color1, 0.5);
-    // list.focusBackground: List/Tree background color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
-    theme.colors['list.focusBackground'] = addAlpha(colorSet.base.color1, 0.5);
     theme.colors['list.focusForeground'] = '#FFFFFF';
     // list.highlightForeground: List/Tree foreground color of the match highlights when searching inside the list/tree.
     theme.colors['list.highlightForeground'] = colorSet.base.color1;
