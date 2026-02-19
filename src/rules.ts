@@ -144,5 +144,9 @@ export const tokenRules: IRuleGenerator[] = [
   { color: s => s.syntax.type,         generate: getSimpleColorGenerator('C# type',          'source.cs storage.type') },
   { color: s => s.syntax.type,         generate: getSimpleColorGenerator('C# return type',   'source.cs meta.method.return-type') }, // Lambda function returns do not use storage.type scope
   { color: s => s.syntax.comment,      generate: getSimpleColorGenerator('C# preprocessor',  'source.cs meta.preprocessor') },
-  { color: s => s.base.foreground,     generate: getSimpleColorGenerator('C# namespace',     'source.cs entity.name.type.namespace') } // Override generic entity.name.type rule
+  { color: s => s.base.foreground,     generate: getSimpleColorGenerator('C# namespace',     'source.cs entity.name.type.namespace') }, // Override generic entity.name.type rule
+  /**
+   * Go
+   */
+  { color: s => s.syntax.type,         generate: getSimpleColorGenerator('Go type',          'source.go storage.type') }
 ];
