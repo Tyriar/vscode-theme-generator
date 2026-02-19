@@ -135,6 +135,7 @@ Support below means that the standard VS Code grammar has explicit support for t
 - :white_check_mark: JavaScript
 - :white_check_mark: Markdown
 - :white_check_mark: TypeScript
+- :white_check_mark: Go
 
 ## Roadmap
 
